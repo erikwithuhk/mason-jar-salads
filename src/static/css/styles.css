@@ -33,7 +33,7 @@ body {
   font: normal 16px Raleway, sans-serif;
 }
 
-main {
+.container {
   padding: 1rem;
 }
 
@@ -43,8 +43,77 @@ main {
 3. Welcome screen
 =======================*/
 
+.welcome {
+  background-color: #00796B;
+  height: 100%;
+  position: relative;
+}
+
 .welcome__page-header {
+  color: #fff;
   font: bold 3rem Lobster, cursive;
-  margin: 1.5rem;
+  margin: 1.5rem auto 3.5rem;
   text-align: center;
+}
+
+.authentication-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -96.5px;
+  margin-left: -45%;
+  width: 90%;
+}
+
+.authentication-form__header {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.authentication-form input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  display: block;
+  font: normal 1rem Raleway, sans-serif;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.authentication-form__email-input {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px solid #BDBDBD;
+}
+
+.authentication-form__password-input {
+  border-bottom: 1px solid #BDBDBD;
+}
+
+.authentication-form__username-input {
+  border-bottom: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.authentication-form__submit {
+  background-color: #FFC107;
+  border-bottom: 2px solid #d19f07;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #BDBDBD;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #BDBDBD;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #BDBDBD;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #BDBDBD;
 }
