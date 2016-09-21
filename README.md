@@ -33,3 +33,4 @@ An app that allows users to create salad recipes and save them. Users will fill 
   - Feed from "mason jar salads" query
 - Search by ingredient
 - SEO
+  - Unique page titles (https://github.com/gaearon/react-document-title)
