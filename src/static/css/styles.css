@@ -43,7 +43,7 @@ main {
 3. Welcome screen
 =======================*/
 
-.welcome__header {
+.welcome__page-header {
   font: bold 3rem Lobster, cursive;
   margin: 1.5rem;
   text-align: center;
