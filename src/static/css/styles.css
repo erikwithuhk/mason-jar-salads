@@ -1,3 +1,50 @@
+/* =======================
+Contents:
+  1. Resets
+  2. Global styles
+  3. Welcome screen
+=======================*/
+
+
+
+/* =======================
+1. Resets
+=======================*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+main {
+  height: 100%;
+}
+
+
+
+/* =======================
+2. Global styles
+=======================*/
+
 body {
-  background-color: red;
+  font: normal 16px Raleway, sans-serif;
+}
+
+main {
+  padding: 1rem;
+}
+
+
+
+/* =======================
+3. Welcome screen
+=======================*/
+
+.welcome__header {
+  font: bold 3rem Lobster, cursive;
+  margin: 1.5rem;
+  text-align: center;
 }
