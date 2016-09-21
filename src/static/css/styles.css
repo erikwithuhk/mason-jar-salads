@@ -3,6 +3,7 @@ Contents:
   1. Resets
   2. Global styles
   3. Welcome screen
+  Media queries
 =======================*/
 
 
@@ -46,7 +47,6 @@ body {
 .welcome {
   background-color: #00796B;
   height: 100%;
-  position: relative;
 }
 
 .welcome__page-header {
@@ -57,12 +57,22 @@ body {
 }
 
 .authentication-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -96.5px;
-  margin-left: -45%;
+  animation-name: authentication-slideup;
+  animation-duration: 1s;
+  max-width: 350px;
+  margin: 0 auto;
   width: 90%;
+}
+
+@keyframes authentication-slideup {
+  0% {
+    opacity: 0;
+    padding-top: 50%;
+  }
+  100% {
+    opacity: 1;
+    padding-top: 0;
+  }
 }
 
 .authentication-form__header {
@@ -117,3 +127,9 @@ body {
 :-moz-placeholder { /* Firefox 18- */
   color: #BDBDBD;
 }
+
+
+
+/* =======================
+# Media queries
+=======================*/
