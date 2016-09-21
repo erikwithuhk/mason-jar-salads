@@ -24,6 +24,10 @@ main {
   height: 100%;
 }
 
+a {
+  font-weight: bold;
+}
+
 
 
 /* =======================
@@ -126,6 +130,16 @@ body {
 }
 :-moz-placeholder { /* Firefox 18- */
   color: #BDBDBD;
+}
+
+.welcome__authentication-toggle-text {
+  color: #BDBDBD;
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+.welcome__authentication-toggle-text a {
+  color: #fff;
 }
 
 
