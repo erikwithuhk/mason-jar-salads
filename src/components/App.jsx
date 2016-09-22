@@ -11,8 +11,22 @@ class App extends Component {
     super();
     this.state = {
       userLoggedIn: false,
+      userID: null,
     };
     this.signOut = this.signOut.bind(this);
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      firebase.auth()
+              .onAuthStateChanged((user) => {
+                if (user !== null) {
+                  this.setState({
+                    userLoggedIn: true,
+                    userID: user.uid,
+                  });
+                }
+              });
+    }, 200);
   }
   showHeaderOnLogin() {
     if (this.state.userLoggedIn) {
@@ -27,16 +41,7 @@ class App extends Component {
         </header>
       );
     }
-  }
-  componentDidMount() {
-    setTimeout(() => {
-      firebase.auth()
-              .onAuthStateChanged((user) => {
-                this.setState({
-                  userLoggedIn: (user !== null),
-                });
-              });
-    }, 200);
+    return false;
   }
   signOut() {
     firebase.auth()
@@ -44,6 +49,15 @@ class App extends Component {
             .then(() => {
               console.log('user signed out');
             });
+  }
+  createRecipe() {
+    const data = {
+      name: 'new salad 2',
+      userID: this.state.userID,
+    };
+    firebase.database().ref('recipes').set(data).then((response) => {
+      console.log(response);
+    });
   }
   render() {
     return (
