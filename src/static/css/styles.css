@@ -63,6 +63,7 @@ body {
 .authentication-form {
   animation-name: authentication-slideup;
   animation-duration: 1s;
+  animation-delay: 1s;
   max-width: 350px;
   margin: 0 auto;
   width: 90%;
@@ -71,7 +72,7 @@ body {
 @keyframes authentication-slideup {
   0% {
     opacity: 0;
-    padding-top: 50%;
+    padding-top: 100%;
   }
   100% {
     opacity: 1;
