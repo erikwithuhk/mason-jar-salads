@@ -35,6 +35,7 @@ class App extends Component {
           <nav className="top-nav">
             <h1 className="top-nav__brand">Mason Jar Salads</h1>
             <nav className="top-nav__sub-nav">
+              <Link to="/" >My recipes</Link>
               <Link to="/welcome" onClick={this.signOut}>Sign out</Link>
             </nav>
           </nav>
