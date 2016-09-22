@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import request from 'superagent';
 import firebase from '../../firebase.config.js';
 
 const propTypes = {
@@ -31,7 +32,11 @@ class App extends Component {
     }, 200);
   }
   getRecipes() {
-    console.log('get recipes');
+    firebase.database()
+            .ref('recipes')
+            .on('value', (snapshot) => {
+              console.log(snapshot);
+            });
   }
   showHeaderOnLogin() {
     if (this.state.userLoggedIn) {
@@ -61,9 +66,12 @@ class App extends Component {
       name: 'new salad 2',
       userID: this.state.userID,
     };
-    firebase.database().ref('recipes').set(data).then((response) => {
-      console.log(response);
-    });
+    const url = 'https://mason-jar-salads-3cd83.firebaseio.com/recipes.json';
+    request.post(url)
+           .send(data)
+           .then((response) => {
+             console.log(response);
+           });
   }
   render() {
     return (
