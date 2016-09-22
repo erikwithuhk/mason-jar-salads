@@ -21,7 +21,7 @@ Contents:
 
 html,
 body,
-main {
+#root {
   height: 100%;
 }
 
@@ -246,19 +246,60 @@ body {
 }
 
 .my-recipes__recipe-card {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  border: 2px solid #BDBDBD;
+  border: 2px solid #757575;
   border-radius: 5px;
   display: inline-block;
-  height: 10rem;
   margin: 2%;
   max-width: 10rem;
   position: relative;
   width: 45%;
 }
 
+.my-recipes__recipe-card a {
+  text-decoration: none;
+}
+
+.my-recipes__recipe-card__image {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 3px 3px 0 0;
+  height: 10rem;
+  width: 100%;
+}
+
+.my-recipes__recipe-card__name-and-user {
+  background-color: #EEEEEE;
+  border-top: 2px solid #757575;
+  border-radius: 0 0 3px 3px;
+  padding: 0.5rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.my-recipes__recipe-card:hover .my-recipes__recipe-card__name-and-user {
+  background-color: #757575;
+}
+
+.my-recipes__recipe-card__name-and-user .recipe-title,
+.my-recipes__recipe-card__name-and-user .username {
+  color: #000;
+  font-size: 0.875rem;
+  text-align: left;
+  transition: color 0.2s ease-in-out;
+}
+
+.my-recipes__recipe-card:hover .recipe-title,
+.my-recipes__recipe-card:hover .username {
+  color: #fff;
+}
+
+.my-recipes__recipe-card__name-and-user .recipe-title {
+  font-weight: bold;
+}
+
+.my-recipes__recipe-card__name-and-user .username {
+  font-weight: normal;
+}
 
 
 
