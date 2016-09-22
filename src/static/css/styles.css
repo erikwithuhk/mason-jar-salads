@@ -205,7 +205,6 @@ body {
 .top-nav {
   background-color: #009688;
   border-bottom: 2px solid #BDBDBD;
-  /*padding: 0.5rem;*/
 }
 
 .top-nav__brand {
@@ -225,6 +224,7 @@ body {
   display: inline-block;
   padding: 0.5rem;
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
 }
 
 .top-nav__sub-nav a:hover,
