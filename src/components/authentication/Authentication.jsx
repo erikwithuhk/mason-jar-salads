@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-class Authentication extends React.Component {
+class Authentication extends Component {
   render() {
     return (
       <div className="welcome container">

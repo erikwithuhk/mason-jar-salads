@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
 import firebase from '../../../firebase.config.js';
 
-class RegistrationForm extends React.Component {
+class RegistrationForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
