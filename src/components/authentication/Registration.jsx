@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
 import firebase from '../../../firebase.config.js';
 
-class RegistrationForm extends Component {
+const propTypes = {
+  router: React.PropTypes.object.isRequired,
+};
+
+class Registration extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -86,4 +90,6 @@ class RegistrationForm extends Component {
   }
 }
 
-export default withRouter(RegistrationForm);
+Registration.propTypes = propTypes;
+
+export default withRouter(Registration);

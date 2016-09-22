@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router';
 import firebase from '../../../firebase.config.js';
 
+const propTypes = {
+  router: React.PropTypes.object.isRequired,
+};
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -65,5 +69,7 @@ class Login extends Component {
     );
   }
 }
+
+Login.propTypes = propTypes;
 
 export default withRouter(Login);
