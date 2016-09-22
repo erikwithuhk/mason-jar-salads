@@ -10,4 +10,6 @@ function requireAuth(nextState, replace) {
   }
 }
 
+console.log(firebase.auth());
+
 module.exports = requireAuth;

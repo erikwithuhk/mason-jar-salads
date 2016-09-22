@@ -14,12 +14,27 @@ class App extends Component {
     };
     this.signOut = this.signOut.bind(this);
   }
+  showHeaderOnLogin() {
+    if (this.state.userLoggedIn) {
+      return (
+        <header>
+          <nav className="top-nav">
+            <h1 className="top-nav__brand">Mason Jar Salads</h1>
+            <nav className="top-nav__sub-nav">
+              <Link to="/welcome" onClick={this.signOut}>Sign out</Link>
+              <a href="http://www.barkbox.com">Bark box</a>
+            </nav>
+          </nav>
+        </header>
+      );
+    }
+  }
   componentDidMount() {
     setTimeout(() => {
       firebase.auth()
               .onAuthStateChanged((user) => {
                 this.setState({
-                  userLoggedIn: (user),
+                  userLoggedIn: (user !== null),
                 });
               });
     }, 200);
@@ -33,15 +48,8 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <header>
-          <nav className="top-nav">
-            <h1 className="top-nav__brand">Mason Jar Salads</h1>
-            <nav className="top-nav__sub-nav">
-              <Link to="/welcome" onClick={this.signOut}>Sign out</Link>
-            </nav>
-          </nav>
-        </header>
+      <div className="container">
+        {this.showHeaderOnLogin()}
         <main>
           {this.props.children}
         </main>

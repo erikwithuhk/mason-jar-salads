@@ -21,7 +21,8 @@ Contents:
 
 html,
 body,
-#root {
+#root,
+main {
   height: 100%;
 }
 
@@ -41,7 +42,7 @@ body {
 }
 
 .container {
-  padding: 1rem;
+  height: 100%;
 }
 
 .clearfix {
@@ -93,6 +94,7 @@ body {
 .welcome {
   background-color: #00796B;
   height: 100%;
+  padding: 1rem;
 }
 
 .welcome__page-header {
