@@ -32,11 +32,17 @@ class App extends Component {
     }, 200);
   }
   getRecipes() {
-    firebase.database()
-            .ref('recipes')
-            .on('value', (snapshot) => {
-              console.log(snapshot);
-            });
+    const url = 'https://mason-jar-salads-3cd83.firebaseio.com/recipes.json';
+    request.get(url)
+           .then((response) => {
+             const recipesObject = response.body;
+             Object.keys(recipesObject).map((key) => {
+               this.setState({
+                 recipes: [],
+               });
+               console.log(recipesObject[key]);
+             });
+           });
   }
   showHeaderOnLogin() {
     if (this.state.userLoggedIn) {
@@ -66,7 +72,7 @@ class App extends Component {
   }
   createRecipe() {
     const data = {
-      name: 'new salad 2',
+      name: 'new salad 1',
       userID: this.state.userID,
     };
     const url = 'https://mason-jar-salads-3cd83.firebaseio.com/recipes.json';
