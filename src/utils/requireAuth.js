@@ -11,5 +11,6 @@ function requireAuth(nextState, replace) {
 }
 
 console.log(firebase.auth());
+console.log(firebase.auth().currentUser === null);
 
 module.exports = requireAuth;
