@@ -5,7 +5,20 @@ import firebase from '../../firebase.config.js';
 class App extends Component {
   constructor() {
     super();
+    this.state = {
+      userLoggedIn: false,
+    };
     this.signOut = this.signOut.bind(this);
+  }
+  componentDidMount() {
+    setTimeout(() => {
+      firebase.auth()
+              .onAuthStateChanged((user) => {
+                this.setState({
+                  userLoggedIn: (user),
+                });
+              });
+    }, 200);
   }
   signOut() {
     firebase.auth()
