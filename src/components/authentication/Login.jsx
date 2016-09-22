@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 class Login extends Component {
   render() {
@@ -6,7 +7,7 @@ class Login extends Component {
       <div className="welcome container">
         <h1 className="welcome__page-header">Mason Jar Salads</h1>
         <form className="authentication-form">
-          <h3 className="authentication-form__header">Create an account</h3>
+          <h3 className="authentication-form__header">Log in</h3>
           <input
             className="authentication-form__email-input"
             type="email"
@@ -18,19 +19,14 @@ class Login extends Component {
             placeholder="Password"
           />
           <input
-            className="authentication-form__username-input"
-            type="username"
-            placeholder="Username"
-          />
-          <input
             className="authentication-form__submit btn btn--primary"
             type="submit"
-            value="Create account"
+            value="Log in"
           />
           <p
             className="welcome__authentication-toggle-text"
           >
-          Already have an account? Log in here.
+            Don't have an account?<br /><Link to="/register">Create an account</Link>.
           </p>
         </form>
       </div>

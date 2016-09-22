@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class RegistrationForm extends React.Component {
   render() {
@@ -30,7 +31,7 @@ class RegistrationForm extends React.Component {
           <p
             className="welcome__authentication-toggle-text"
           >
-          Already have an account? Log in here.
+            Already have an account?<br /><Link to="/login">Log in here</Link>.
           </p>
         </form>
       </div>
