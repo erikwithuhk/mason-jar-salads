@@ -36,6 +36,7 @@ a {
 
 body {
   font: normal 16px Raleway, sans-serif;
+  line-height: 1.5;
 }
 
 .container {
