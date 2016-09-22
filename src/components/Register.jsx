@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { withRouter } from 'react-router';
 
-class Register extends Component {
+class Register extends React.Component {
   render() {
     return (
       <div>Register</div>
@@ -8,4 +9,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default withRouter(Register);
