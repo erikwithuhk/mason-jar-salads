@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router';
 
 class Authentication extends React.Component {
   render() {
@@ -40,4 +39,4 @@ class Authentication extends React.Component {
   }
 }
 
-export default withRouter(Authentication);
+export default Authentication;
