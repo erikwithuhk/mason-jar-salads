@@ -43,17 +43,39 @@ body {
 }
 
 .btn {
+  border: none;
   border-bottom-width: 2px;
   border-bottom-style: solid;
   border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
+  display: block;
+  font: bold 1rem Raleway, sans-serif;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.btn > a {
+  text-decoration: none;
 }
 
 .btn--primary {
   background-color: #FFC107;
   border-bottom-color: #d19f07;
   color: #fff;
+}
+
+.btn--primary > a {
+  color: #fff;
+}
+
+.btn--secondary {
+  background-color: #BDBDBD;
+  border-bottom-color: #757575;
+  color: #404040;
+}
+
+.btn--secondary > a {
+  color: #404040;
 }
 
 
@@ -73,13 +95,26 @@ body {
   text-align: center;
 }
 
+.welcome__authentication-button-container {
+  margin: 6rem auto 0;
+}
+
+.welcome__authentication-button-container,
+.authentication-form {
+  max-width: 350px;
+  width: 90%;
+}
+
+.welcome__authentication-button-container button {
+  margin: 0.5rem auto;
+  width: 100%;
+}
+
 .authentication-form {
   animation-name: authentication-slideup;
   animation-duration: 1s;
   animation-delay: 1s;
-  max-width: 350px;
   margin: 0 auto;
-  width: 90%;
 }
 
 @keyframes authentication-slideup {
@@ -128,12 +163,6 @@ body {
 }
 
 .authentication-form__submit {
-  /*background-color: #FFC107;
-  border-bottom: 2px solid #d19f07;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-weight: bold;*/
   margin-top: 0.5rem;
 }
 
