@@ -23,7 +23,7 @@ class Login extends Component {
             placeholder="Username"
           />
           <input
-            className="authentication-form__submit"
+            className="authentication-form__submit btn btn--primary"
             type="submit"
             value="Create account"
           />

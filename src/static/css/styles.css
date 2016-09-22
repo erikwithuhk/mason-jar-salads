@@ -42,6 +42,19 @@ body {
   padding: 1rem;
 }
 
+.btn {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn--primary {
+  background-color: #FFC107;
+  border-bottom-color: #d19f07;
+  color: #fff;
+}
 
 
 /* =======================
@@ -115,12 +128,12 @@ body {
 }
 
 .authentication-form__submit {
-  background-color: #FFC107;
+  /*background-color: #FFC107;
   border-bottom: 2px solid #d19f07;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: bold;*/
   margin-top: 0.5rem;
 }
 
