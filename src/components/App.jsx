@@ -58,7 +58,10 @@ class App extends Component {
     firebase.auth()
             .signOut()
             .then(() => {
-              console.log('user signed out');
+              this.setState({
+                userLoggedIn: false,
+                userID: null,
+              });
             });
   }
   createRecipe() {
