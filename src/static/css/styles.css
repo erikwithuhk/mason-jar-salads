@@ -3,6 +3,7 @@ Contents:
   1. Resets
   2. Global styles
   3. Welcome screen
+  4. Navs
   Media queries
 =======================*/
 
@@ -41,6 +42,11 @@ body {
 
 .container {
   padding: 1rem;
+}
+
+.clearfix {
+  overflow: auto;
+  zoom: 1;
 }
 
 .btn {
@@ -189,6 +195,70 @@ body {
 .welcome__authentication-toggle-text a {
   color: #fff;
 }
+
+
+
+/* =======================
+4. Navs
+=======================*/
+
+.top-nav {
+  background-color: #009688;
+  border-bottom: 2px solid #BDBDBD;
+  /*padding: 0.5rem;*/
+}
+
+.top-nav__brand {
+  font: bold 2rem Lobster, sans-serif;
+  color: #fff;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.top-nav__sub-nav {
+  background-color: #00796B;
+  text-align: center;
+}
+
+.top-nav__sub-nav a {
+  color: #fff;
+  display: inline-block;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.top-nav__sub-nav a:hover,
+.top-nav__sub-nav a.selected {
+  background-color: #fff;
+  color: #00796B;
+}
+
+
+
+/* =======================
+5. My recipes
+=======================*/
+
+.my-recipes {
+  max-width: 960px;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.my-recipes__recipe-card {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 2px solid #BDBDBD;
+  border-radius: 5px;
+  display: inline-block;
+  height: 10rem;
+  margin: 2%;
+  max-width: 10rem;
+  position: relative;
+  width: 45%;
+}
+
 
 
 
