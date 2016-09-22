@@ -146,17 +146,17 @@ body {
   width: 100%;
 }
 
-.authentication-form__email-input {
+.authentication-form__first-input {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom: 1px solid #BDBDBD;
 }
 
-.authentication-form__password-input {
+.authentication-form__middle-input {
   border-bottom: 1px solid #BDBDBD;
 }
 
-.authentication-form__username-input {
+.authentication-form__last-input {
   border-bottom: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -166,6 +166,7 @@ body {
   margin-top: 0.5rem;
 }
 
+/*Change placeholder text color*/
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #BDBDBD;
 }

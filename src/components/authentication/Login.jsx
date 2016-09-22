@@ -41,14 +41,14 @@ class Login extends Component {
         <form className="authentication-form" onSubmit={this.handleSubmit}>
           <h3 className="authentication-form__header">Log in</h3>
           <input
-            className="authentication-form__email-input"
+            className="authentication-form__first-input"
             name="email"
             type="email"
             placeholder="Email"
             onChange={this.handleChange}
           />
           <input
-            className="authentication-form__password-input"
+            className="authentication-form__last-input"
             name="password"
             type="password"
             placeholder="Password"
@@ -62,7 +62,7 @@ class Login extends Component {
           <p
             className="welcome__authentication-toggle-text"
           >
-            Don't have an account?<br /><Link to="/register">Create an account</Link>.
+            Don't have an account?<br /><Link to="/register">Create an account</Link>
           </p>
         </form>
       </div>

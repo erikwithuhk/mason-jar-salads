@@ -51,7 +51,7 @@ class Registration extends Component {
         <form className="authentication-form" onSubmit={this.handleSubmit}>
           <h3 className="authentication-form__header">Create an account</h3>
           <input
-            className="authentication-form__email-input"
+            className="authentication-form__first-input"
             name="email"
             type="email"
             placeholder="Email"
@@ -59,7 +59,7 @@ class Registration extends Component {
             onChange={this.handleChange}
           />
           <input
-            className="authentication-form__password-input"
+            className="authentication-form__middle-input"
             name="password"
             type="password"
             placeholder="Password"
@@ -67,7 +67,7 @@ class Registration extends Component {
             onChange={this.handleChange}
           />
           <input
-            className="authentication-form__username-input"
+            className="authentication-form__last-input"
             name="username"
             type="text"
             placeholder="Username"
@@ -82,7 +82,7 @@ class Registration extends Component {
           <p
             className="welcome__authentication-toggle-text"
           >
-            Already have an account?<br /><Link to="/login">Log in here</Link>.
+            Already have an account?<br /><Link to="/login">Log in here</Link>
           </p>
         </form>
       </div>
