@@ -9,6 +9,7 @@ class Login extends Component {
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(e) {
     const stateObject = {};
@@ -16,11 +17,15 @@ class Login extends Component {
     stateObject[stateKey] = e.target.value;
     this.setState(stateObject);
   }
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(e.target);
+  }
   render() {
     return (
       <div className="welcome container">
         <h1 className="welcome__page-header">Mason Jar Salads</h1>
-        <form className="authentication-form">
+        <form className="authentication-form" onSubmit={this.handleSubmit}>
           <h3 className="authentication-form__header">Log in</h3>
           <input
             className="authentication-form__email-input"

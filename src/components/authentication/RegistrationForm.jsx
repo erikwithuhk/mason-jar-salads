@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import firebase from '../../../firebase.config.js';
 
 class RegistrationForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class RegistrationForm extends React.Component {
       username: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(e) {
     const stateObject = {};
@@ -17,11 +19,23 @@ class RegistrationForm extends React.Component {
     stateObject[stateKey] = e.target.value;
     this.setState(stateObject);
   }
+  handleSubmit(e) {
+    e.preventDefault();
+    const { email, password, username } = this.state;
+    firebase.auth()
+            .createUserWithEmailAndPassword(email, password)
+            .catch((err) => {
+              alert(err);
+            })
+            .then((user) => {
+              console.log(user);
+            });
+  }
   render() {
     return (
       <div className="welcome container">
         <h1 className="welcome__page-header">Mason Jar Salads</h1>
-        <form className="authentication-form">
+        <form className="authentication-form" onSubmit={this.handleSubmit}>
           <h3 className="authentication-form__header">Create an account</h3>
           <input
             className="authentication-form__email-input"
