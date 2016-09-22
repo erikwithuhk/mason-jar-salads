@@ -5,10 +5,17 @@ class RegistrationForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'e',
-      password: 'p',
-      username: 'u',
+      email: '',
+      password: '',
+      username: '',
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(e) {
+    const stateObject = {};
+    const stateKey = e.target.name;
+    stateObject[stateKey] = e.target.value;
+    this.setState(stateObject);
   }
   render() {
     return (
@@ -18,21 +25,27 @@ class RegistrationForm extends React.Component {
           <h3 className="authentication-form__header">Create an account</h3>
           <input
             className="authentication-form__email-input"
+            name="email"
             type="email"
             placeholder="Email"
             value={this.state.email}
+            onChange={this.handleChange}
           />
           <input
             className="authentication-form__password-input"
+            name="password"
             type="password"
             placeholder="Password"
             value={this.state.password}
+            onChange={this.handleChange}
           />
           <input
             className="authentication-form__username-input"
-            type="username"
+            name="username"
+            type="text"
             placeholder="Username"
             value={this.state.username}
+            onChange={this.handleChange}
           />
           <input
             className="authentication-form__submit btn btn--primary"
