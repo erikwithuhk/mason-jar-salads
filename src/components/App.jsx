@@ -22,7 +22,6 @@ class App extends Component {
             <h1 className="top-nav__brand">Mason Jar Salads</h1>
             <nav className="top-nav__sub-nav">
               <Link to="/welcome" onClick={this.signOut}>Sign out</Link>
-              <a href="http://www.barkbox.com">Bark box</a>
             </nav>
           </nav>
         </header>
