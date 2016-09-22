@@ -15,6 +15,7 @@ class Login extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.sendPasswordResetEmail = this.sendPasswordResetEmail.bind(this);
   }
   handleChange(e) {
     const stateObject = {};
@@ -33,6 +34,11 @@ class Login extends Component {
             .then(() => {
               this.props.router.push('/');
             });
+  }
+  sendPasswordResetEmail() {
+    const { email } = this.state;
+    firebase.auth()
+            .sendPasswordResetEmail(email);
   }
   render() {
     return (
@@ -59,9 +65,10 @@ class Login extends Component {
             type="submit"
             value="Log in"
           />
-          <p
-            className="welcome__authentication-toggle-text"
-          >
+          <p className="welcome__authentication-toggle-text">
+            <Link to="#" onClick={this.sendPasswordResetEmail}>Forgot your password?</Link>
+          </p>
+          <p className="welcome__authentication-toggle-text">
             Don't have an account?<br /><Link to="/register">Create an account</Link>
           </p>
         </form>
