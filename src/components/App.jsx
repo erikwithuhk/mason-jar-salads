@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       userLoggedIn: false,
       userID: null,
+      recipes: [],
     };
     this.signOut = this.signOut.bind(this);
   }
@@ -24,9 +25,13 @@ class App extends Component {
                     userLoggedIn: true,
                     userID: user.uid,
                   });
+                  this.getRecipes();
                 }
               });
     }, 200);
+  }
+  getRecipes() {
+    console.log('get recipes');
   }
   showHeaderOnLogin() {
     if (this.state.userLoggedIn) {
