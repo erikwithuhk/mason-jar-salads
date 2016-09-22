@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import firebase from '../../../firebase.config.js';
 
 class RegistrationForm extends React.Component {
@@ -28,7 +28,16 @@ class RegistrationForm extends React.Component {
               alert(err);
             })
             .then((user) => {
-              console.log(user);
+              firebase.database()
+                      .ref('users')
+                      .child(user.uid)
+                      .set({
+                        email: user.email,
+                        username: this.state.username,
+                      });
+            })
+            .then(() => {
+              this.props.router.push('/');
             });
   }
   render() {
@@ -77,4 +86,4 @@ class RegistrationForm extends React.Component {
   }
 }
 
-export default RegistrationForm;
+export default withRouter(RegistrationForm);
