@@ -9,14 +9,12 @@ import Login from '../components/authentication/Login.jsx';
 
 const routes = () => (
   <Router history={hashHistory} >
-    <Route path="/" >
-      <IndexRoute component={App} onEnter={requireAuth} >
-        <Route path="/recipes" component={Recipes} />
-      </IndexRoute>
-      <Route path="welcome" component={Authentication} />
-      <Route path="register" component={Registration} />
-      <Route path="login" component={Login} />
+    <Route path="/" component={App} onEnter={requireAuth} >
+      <IndexRoute component={Recipes} />
     </Route>
+    <Route path="/welcome" component={Authentication} />
+    <Route path="/register" component={Registration} />
+    <Route path="/login" component={Login} />
   </Router>
 );
 
