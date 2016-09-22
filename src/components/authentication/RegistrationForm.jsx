@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Login extends Component {
+class RegistrationForm extends React.Component {
   render() {
     return (
       <div className="welcome container">
@@ -38,4 +38,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default RegistrationForm;
