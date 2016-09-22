@@ -33,7 +33,7 @@ class RegistrationForm extends React.Component {
                       .child(user.uid)
                       .set({
                         email: user.email,
-                        username: this.state.username,
+                        username,
                       });
             })
             .then(() => {

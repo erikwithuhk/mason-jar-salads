@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
+import firebase from '../../../firebase.config.js';
 
 class Login extends Component {
   constructor(props) {
@@ -19,7 +20,15 @@ class Login extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target);
+    const { email, password } = this.state;
+    firebase.auth()
+            .signInWithEmailAndPassword(email, password)
+            .catch((err) => {
+              console.log(err);
+            })
+            .then(() => {
+              this.props.router.push('/');
+            });
   }
   render() {
     return (
@@ -57,4 +66,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
