@@ -2,6 +2,14 @@ import React from 'react';
 import { Link } from 'react-router';
 
 class RegistrationForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: 'e',
+      password: 'p',
+      username: 'u',
+    };
+  }
   render() {
     return (
       <div className="welcome container">
@@ -12,16 +20,19 @@ class RegistrationForm extends React.Component {
             className="authentication-form__email-input"
             type="email"
             placeholder="Email"
+            value={this.state.email}
           />
           <input
             className="authentication-form__password-input"
             type="password"
             placeholder="Password"
+            value={this.state.password}
           />
           <input
             className="authentication-form__username-input"
             type="username"
             placeholder="Username"
+            value={this.state.username}
           />
           <input
             className="authentication-form__submit btn btn--primary"
