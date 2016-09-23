@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import request from 'superagent';
-import firebase from '../../firebase.config.js';
+import * as firebase from 'firebase';
 
 const propTypes = {
   children: React.PropTypes.element.isRequired,
@@ -36,12 +36,17 @@ class App extends Component {
     request.get(url)
            .then((response) => {
              const recipesObject = response.body;
-             Object.keys(recipesObject).map((key) => {
-               this.setState({
-                 recipes: [],
-               });
-               console.log(recipesObject[key]);
+             let recipes = [];
+             recipes = Object.keys(recipesObject).map((id) => {
+               const recipeData = recipesObject[id];
+               return {
+                 id,
+                 name: recipeData.name,
+                 userID: recipeData.userID,
+               }
              });
+             this.setState({ recipes });
+             console.log(this.state);
            });
   }
   showHeaderOnLogin() {
