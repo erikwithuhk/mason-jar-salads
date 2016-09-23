@@ -30,25 +30,23 @@ class App extends Component {
                 }
               });
     }, 200);
-    this.getRecipes();
   }
   getRecipes() {
-    const url = 'https://mason-jar-salads-3cd83.firebaseio.com/recipes.json';
-    request.get(url)
-           .then((response) => {
-             const recipesObject = response.body;
-             let recipes = [];
-             recipes = Object.keys(recipesObject).map((id) => {
-               const recipeData = recipesObject[id];
-               return {
-                 id,
-                 name: recipeData.name,
-                 userID: recipeData.userID,
-                 username: recipeData.username,
-               };
-             });
-             this.setState({ recipes });
-           });
+    const recipeListRef = firebase.database().ref('recipes');
+    recipeListRef.on('value', (snapshot) => {
+      const recipesData = snapshot.val();
+      let recipes = [];
+      recipes = Object.keys(recipesData).map((id) => {
+        const recipeData = recipesData[id];
+        return {
+          id,
+          name: recipeData.name,
+          userID: recipeData.userID,
+          username: recipeData.username,
+        };
+      });
+      this.setState({ recipes });
+    });
   }
   showHeaderOnLogin() {
     if (this.state.userLoggedIn) {
