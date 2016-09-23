@@ -5,7 +5,7 @@ const propTypes = {
   recipes: React.PropTypes.array,
 };
 
-class Recipes extends Component {
+class RecipeList extends Component {
   renderRecipeCards() {
     const recipes = this.props.recipes;
     const recipeCards = recipes.map((recipe) => {
@@ -28,6 +28,6 @@ class Recipes extends Component {
   }
 }
 
-Recipes.propTypes = propTypes;
+RecipeList.propTypes = propTypes;
 
-export default Recipes;
+export default RecipeList;
