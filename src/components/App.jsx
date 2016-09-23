@@ -30,6 +30,7 @@ class App extends Component {
                 }
               });
     }, 200);
+    this.getRecipes();
   }
   getRecipes() {
     const url = 'https://mason-jar-salads-3cd83.firebaseio.com/recipes.json';
@@ -43,10 +44,9 @@ class App extends Component {
                  id,
                  name: recipeData.name,
                  userID: recipeData.userID,
-               }
+               };
              });
              this.setState({ recipes });
-             console.log(this.state);
            });
   }
   showHeaderOnLogin() {
@@ -88,11 +88,14 @@ class App extends Component {
            });
   }
   render() {
+    const childrenWithProps = React.cloneElement(this.props.children, {
+      recipes: [{ test: 1 }, { test: 2 }],
+    });
     return (
       <div className="container">
         {this.showHeaderOnLogin()}
         <main>
-          {this.props.children}
+          {childrenWithProps}
         </main>
       </div>
     );
