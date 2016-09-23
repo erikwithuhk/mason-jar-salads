@@ -12,6 +12,7 @@ class RecipeList extends Component {
       return (
         <RecipeCard
           key={recipe.id}
+          id={recipe.id}
           name={recipe.name}
           username={recipe.username}
         />
