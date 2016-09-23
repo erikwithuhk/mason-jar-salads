@@ -4,6 +4,8 @@ Contents:
   2. Global styles
   3. Welcome screen
   4. Navs
+  5. Recipe list
+  6. Recipe view
   Media queries
 =======================*/
 
@@ -48,6 +50,10 @@ body {
 .clearfix {
   overflow: auto;
   zoom: 1;
+}
+
+section {
+  margin: 1.5rem;
 }
 
 .btn {
@@ -242,7 +248,7 @@ body {
 
 
 /* =======================
-5. Recipes
+5. Recipe list
 =======================*/
 
 .recipes {
@@ -310,5 +316,24 @@ body {
 
 
 /* =======================
+6. Recipe view
+=======================*/
+
+.ingredients-list {
+  list-style: none;
+}
+
+
+
+
+/* =======================
 # Media queries
 =======================*/
+
+@media (min-width: 970px) {
+  section {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+  }
+}
