@@ -7,12 +7,12 @@ class Authentication extends Component {
       <div className="welcome container">
         <h1 className="welcome__page-header">Mason Jar Salads</h1>
         <div className="welcome__authentication-button-container">
-          <button className="btn btn--primary">
-            <Link to="/register" >Create an account</Link>
-          </button>
-          <button className="btn btn--secondary">
-            <Link to="/login" >Log in</Link>
-          </button>
+          <Link to="/register" >
+            <button className="btn btn--primary">Create an account</button>
+          </Link>
+          <Link to="/login" >
+            <button className="btn btn--secondary">Log in</button>
+          </Link>
         </div>
       </div>
     );

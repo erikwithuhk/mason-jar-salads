@@ -114,6 +114,10 @@ body {
   width: 90%;
 }
 
+.welcome__authentication-button-container a {
+  text-decoration: none;
+}
+
 .welcome__authentication-button-container button {
   margin: 0.5rem auto;
   width: 100%;
