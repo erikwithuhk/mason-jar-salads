@@ -89,7 +89,7 @@ class App extends Component {
   }
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
-      recipes: [{ test: 1 }, { test: 2 }],
+      recipes: this.state.recipes,
     });
     return (
       <div className="container">

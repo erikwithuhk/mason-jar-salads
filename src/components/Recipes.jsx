@@ -1,31 +1,22 @@
 import React, { Component } from 'react';
+import RecipeCard from './RecipeCard.jsx';
 
 const propTypes = {
   recipes: React.PropTypes.array,
 };
 
 class Recipes extends Component {
+  renderRecipeCards() {
+    const recipes = this.props.recipes;
+    const recipeCards =  recipes.map((recipe) => {
+      return <RecipeCard key={recipe.id} name={recipe.name} />;
+    });
+    return recipeCards;
+  }
   render() {
     return (
       <section className="recipes clearfix">
-        <article className="recipes__recipe-card">
-          <a href="#">
-            <div className="recipes__recipe-card__image" style={{ backgroundImage: 'url(\'https://media1.popsugar-assets.com/files/thumbor/JGKtKFMeJL66e9S2fjQpLNR5X1w/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/12/12/730/n/1922729/c5008f3d8961ebbb_10843733_894977147188435_1798758311_n/i/5-Ingredient-Salad.jpg\')' }} />
-            <div className="recipes__recipe-card__name-and-user">
-              <h4 className="recipe-title">{this.props.recipes[0].test}</h4>
-              <p className="username">erikwithuhk</p>
-            </div>
-          </a>
-        </article>
-        <article className="recipes__recipe-card">
-          <a href="#">
-            <div className="recipes__recipe-card__image" style={{ backgroundImage: 'url(\'https://media1.popsugar-assets.com/files/thumbor/JGKtKFMeJL66e9S2fjQpLNR5X1w/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/12/12/730/n/1922729/c5008f3d8961ebbb_10843733_894977147188435_1798758311_n/i/5-Ingredient-Salad.jpg\')' }} />
-            <div className="recipes__recipe-card__name-and-user">
-              <h4 className="recipe-title">Chicken and mozzarella salad</h4>
-              <p className="username">erikwithuhk</p>
-            </div>
-          </a>
-        </article>
+        {this.renderRecipeCards()}
       </section>
     );
   }
