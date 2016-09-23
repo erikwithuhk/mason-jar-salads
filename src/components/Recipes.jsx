@@ -8,8 +8,14 @@ const propTypes = {
 class Recipes extends Component {
   renderRecipeCards() {
     const recipes = this.props.recipes;
-    const recipeCards =  recipes.map((recipe) => {
-      return <RecipeCard key={recipe.id} name={recipe.name} />;
+    const recipeCards = recipes.map((recipe) => {
+      return (
+        <RecipeCard
+          key={recipe.id}
+          name={recipe.name}
+          username={recipe.username}
+        />
+      );
     });
     return recipeCards;
   }

@@ -44,6 +44,7 @@ class App extends Component {
                  id,
                  name: recipeData.name,
                  userID: recipeData.userID,
+                 username: recipeData.username,
                };
              });
              this.setState({ recipes });
