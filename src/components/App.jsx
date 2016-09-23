@@ -76,17 +76,15 @@ class App extends Component {
               });
             });
   }
-  createRecipe() {
+  createRecipe(name) {
     const data = {
-      name: 'new salad 1',
+      name,
       userID: this.state.userID,
+      username: 'erikwithuhk',
     };
-    const url = 'https://mason-jar-salads-3cd83.firebaseio.com/recipes.json';
-    request.post(url)
-           .send(data)
-           .then((response) => {
-             console.log(response);
-           });
+    const recipeListRef = firebase.database().ref('recipes');
+    const newRecipeRef = recipeListRef.push();
+    newRecipeRef.set(data);
   }
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
