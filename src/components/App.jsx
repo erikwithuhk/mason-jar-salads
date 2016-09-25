@@ -43,6 +43,7 @@ class App extends Component {
           name: recipeData.name,
           userID: recipeData.userID,
           username: recipeData.username,
+          ingredients: recipeData.ingredients,
         };
       });
       this.setState({ recipes });
@@ -74,11 +75,12 @@ class App extends Component {
               });
             });
   }
-  createRecipe(name) {
+  createRecipe(name, ing1, ing2) {
     const data = {
       name,
       userID: this.state.userID,
       username: 'erikwithuhk',
+      ingredients: [`1 cup ${ing1}`, `2 tbsp ${ing2}`],
     };
     const recipeListRef = firebase.database().ref('recipes');
     const newRecipeRef = recipeListRef.push();
@@ -87,6 +89,7 @@ class App extends Component {
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
       recipes: this.state.recipes,
+      getRecipe: this.getRecipe,
     });
     return (
       <div className="container">

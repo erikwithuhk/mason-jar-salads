@@ -13,8 +13,8 @@ class RecipeList extends Component {
         <RecipeCard
           key={recipe.id}
           id={recipe.id}
-          name={recipe.name}
-          username={recipe.username}
+          recipeName={recipe.name}
+          authorName={recipe.username}
         />
       );
     });
@@ -22,7 +22,7 @@ class RecipeList extends Component {
   }
   render() {
     return (
-      <section className="recipes clearfix">
+      <section className="recipes">
         {this.renderRecipeCards()}
       </section>
     );
