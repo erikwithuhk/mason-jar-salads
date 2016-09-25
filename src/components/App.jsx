@@ -92,16 +92,25 @@ class App extends Component {
       username: this.state.username,
       ingredients: [`1 cup ${ing1}`, `2 tbsp ${ing2}`],
     };
-    this.pushRecipeToRecipes(data);
-  }
-  pushRecipeToRecipes(data) {
-    const recipeListRef = firebase.database().ref('recipes');
-    const newRecipeRef = recipeListRef.push();
-    newRecipeRef.set(data);
-  }
-  pushRecipeToUser() {
 
+    const recipeKey = firebase.database().ref('recipes').push().key;
+
+    const recipeData = {};
+    recipeData[`/recipes/${recipeKey}`] = data;
+    return firebase.database().ref().update(recipeData);
+
+    // const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipes`);
+    // Get the existing user recipes array
+    //
+
+    // const newRecipeRef = userRecipesRef.push();
+    // newRecipeRef.set(recipeKey);
   }
+  // pushRecipeToUser(recipeData) {
+  //   const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipeIDs`);
+  //   const newRecipeRef = userRecipesRef.push();
+  //   newRecipeRef.set(recipeData.);
+  // }
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
       recipes: this.state.recipes,
