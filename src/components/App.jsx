@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       userLoggedIn: false,
       userID: null,
+      username: null,
       recipes: [],
     };
     this.signOut = this.signOut.bind(this);
@@ -26,10 +27,19 @@ class App extends Component {
                     userLoggedIn: true,
                     userID: user.uid,
                   });
+                  this.getUsernameByID(this.state.userID);
                   this.getRecipes();
                 }
               });
     }, 200);
+  }
+  getUsernameByID(userID) {
+    const userRef = firebase.database().ref(`users/${userID}`);
+    userRef.on('value', (snapshot) => {
+      const userData = snapshot.val();
+      const username = userData.username;
+      this.setState({ username });
+    });
   }
   getRecipes() {
     const recipeListRef = firebase.database().ref('recipes');
@@ -79,12 +89,18 @@ class App extends Component {
     const data = {
       name,
       userID: this.state.userID,
-      username: 'erikwithuhk',
+      username: this.state.username,
       ingredients: [`1 cup ${ing1}`, `2 tbsp ${ing2}`],
     };
+    this.pushRecipeToRecipes(data);
+  }
+  pushRecipeToRecipes(data) {
     const recipeListRef = firebase.database().ref('recipes');
     const newRecipeRef = recipeListRef.push();
     newRecipeRef.set(data);
+  }
+  pushRecipeToUser() {
+
   }
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
