@@ -69,7 +69,7 @@ class Recipe extends Component {
     return (
       <section className="recipe-view">
         <h1 className="recipe-view__name">{recipe.name}</h1>
-        <h4 className="recipe-view__author">Created by: <Link to={`/${recipe.username}`}>{recipe.username}</Link></h4>
+        <h4 className="recipe-view__author">Created by: <Link to={`/users/${recipe.username}`}>{recipe.username}</Link></h4>
         <p className="yield">Makes 4 1-quart mason jar salads</p>
         <h3 className="ingredients-header">Ingredients</h3>
         <ul className="ingredients-list">
