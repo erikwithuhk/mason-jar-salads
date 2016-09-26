@@ -20,6 +20,7 @@ class NewRecipe extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
   handleChange(e) {
     const field = e.target.name;
@@ -30,6 +31,10 @@ class NewRecipe extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createRecipe(this.state);
+    this.props.redirectToRecipes();
+  }
+  handleCancel(e) {
+    e.preventDefault();
     this.props.redirectToRecipes();
   }
   render() {
@@ -122,6 +127,7 @@ class NewRecipe extends Component {
             type="submit"
             value="Create recipe"
           />
+          <button onClick={this.handleCancel}>Cancel</button>
         </form>
       </section>
     );
