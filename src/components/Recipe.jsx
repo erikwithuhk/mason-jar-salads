@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 const propTypes = {
   recipes: React.PropTypes.array,
@@ -74,12 +75,9 @@ class Recipe extends Component {
             1/2 cup {recipe.ingredients.dressing} dressing
           </li>
         </ul>
-        <button
-          className="recipe-button update-button"
-          onClick={this.handleUpdate}
-        >
-          Update recipe
-        </button>
+        <Link to={`/recipes/${this.props.params.id}/update`}>
+          <button className="recipe-button update-button">Update recipe</button>
+        </Link>
         <button
           className="recipe-button delete-button"
           onClick={this.handleDelete}

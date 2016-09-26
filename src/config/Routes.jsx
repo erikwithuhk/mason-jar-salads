@@ -5,6 +5,7 @@ import App from '../components/App.jsx';
 import NewRecipe from '../components/NewRecipe.jsx';
 import RecipeList from '../components/RecipeList.jsx';
 import Recipe from '../components/Recipe.jsx';
+import UpdateRecipe from '../components/UpdateRecipe.jsx';
 import Authentication from '../components/authentication/Authentication.jsx';
 import Registration from '../components/authentication/Registration.jsx';
 import Login from '../components/authentication/Login.jsx';
@@ -14,8 +15,11 @@ const routes = () => (
     <Route path="/" component={App} >
       <IndexRoute component={RecipeList} onEnter={requireAuth} />
       <Route path="recipes">
-        <Route path="new" component={NewRecipe} />
-        <Route path=":id" component={Recipe} />
+        <Route path="new" component={NewRecipe} onEnter={requireAuth} />
+        <Route path=":id">
+          <IndexRoute component={Recipe} onEnter={requireAuth} />
+          <Route path="update" component={UpdateRecipe} onEnter={requireAuth} />
+        </Route>
       </Route>
       <Route path="welcome" component={Authentication} />
       <Route path="register" component={Registration} />
