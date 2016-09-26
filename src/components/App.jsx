@@ -99,18 +99,12 @@ class App extends Component {
     recipeData[`/recipes/${recipeKey}`] = data;
     return firebase.database().ref().update(recipeData);
 
-    // const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipes`);
     // Get the existing user recipes array
-    //
-
-    // const newRecipeRef = userRecipesRef.push();
-    // newRecipeRef.set(recipeKey);
+    const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipes`);
+    userRecipesRef.on('value', (snapshot) => {
+      console.log(snapshot.val());
+    });
   }
-  // pushRecipeToUser(recipeData) {
-  //   const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipeIDs`);
-  //   const newRecipeRef = userRecipesRef.push();
-  //   newRecipeRef.set(recipeData.);
-  // }
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
       recipes: this.state.recipes,
