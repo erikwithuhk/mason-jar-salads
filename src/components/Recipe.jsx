@@ -47,10 +47,10 @@ class Recipe extends Component {
       return (
         <div className="update-delete-buttons">
           <Link to={`/recipes/${this.props.params.id}/update`}>
-            <button className="recipe-button update-button">Update recipe</button>
+            <button className="btn btn--primary">Update recipe</button>
           </Link>
           <button
-            className="recipe-button delete-button"
+            className="btn btn--secondary"
             onClick={this.handleDelete}
           >
           Delete recipe

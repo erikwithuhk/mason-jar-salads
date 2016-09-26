@@ -339,6 +339,25 @@ section {
   list-style: none;
 }
 
+.recipe-view__author a {
+  color: #00796B;
+  transition: color 0.2s ease-in-out;
+}
+
+.recipe-view__author a:hover {
+  color: #FFC107;
+}
+
+.update-delete-buttons a {
+  text-decoration: none;
+}
+
+.update-delete-buttons button {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
 
 
 
