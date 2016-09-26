@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import request from 'superagent';
 import * as firebase from 'firebase';
 
@@ -108,10 +108,14 @@ class App extends Component {
       console.log(snapshot.val());
     });
   }
+  redirectToRecipes() {
+    hashHistory.push('/');
+  }
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
       recipes: this.state.recipes,
       createRecipe: this.createRecipe,
+      redirectToRecipes: this.redirectToRecipes,
     });
     return (
       <div className="container">

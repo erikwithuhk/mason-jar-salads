@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 const propTypes = {
   createRecipe: React.PropTypes.func,
+  redirectToRecipes: React.PropTypes.func,
 };
 
 class NewRecipe extends Component {
@@ -28,6 +29,7 @@ class NewRecipe extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createRecipe(this.state);
+    this.props.redirectToRecipes();
   }
   render() {
     return (
