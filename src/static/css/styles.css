@@ -314,10 +314,19 @@ section {
 }
 
 .new-recipe-button {
-  font-size: 3rem;
+  background-color: #fff;
+  border: 2px solid #bdbdbd;
+  border-radius: 50%;
+  color: #757575;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 2rem;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
+  height: 3.25rem;
+  width: 3.25rem;
+  padding: 0.5rem;
 }
 
 

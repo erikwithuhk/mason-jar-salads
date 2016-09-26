@@ -3,20 +3,25 @@ import { Link } from 'react-router';
 import RecipeCard from './RecipeCard.jsx';
 
 const propTypes = {
+  currentUserID: React.PropTypes.string,
   recipes: React.PropTypes.array,
 };
 
 class RecipeList extends Component {
   renderRecipeCards() {
     const recipes = this.props.recipes;
-    const recipeCards = recipes.map(recipe => (
-      <RecipeCard
-        key={recipe.id}
-        id={recipe.id}
-        recipeName={recipe.name}
-        authorName={recipe.username}
-      />
-    ));
+    const recipeCards = recipes.map(recipe => {
+      if (recipe.userID === this.props.currentUserID) {
+        return (
+          <RecipeCard
+            key={recipe.id}
+            id={recipe.id}
+            recipeName={recipe.name}
+            authorName={recipe.username}
+          />
+        );
+      }
+    });
     return recipeCards;
   }
   render() {

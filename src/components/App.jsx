@@ -13,6 +13,7 @@ class App extends Component {
       userLoggedIn: false,
       userID: null,
       username: null,
+      userRecipes: [],
       recipes: [],
     };
     this.signOut = this.signOut.bind(this);
@@ -126,6 +127,7 @@ class App extends Component {
   }
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
+      currentUserID: this.state.userID,
       recipes: this.state.recipes,
       publishRecipe: this.publishRecipe,
       deleteRecipe: this.deleteRecipe,
