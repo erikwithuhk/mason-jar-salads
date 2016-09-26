@@ -360,6 +360,10 @@ section {
   list-style: none;
 }
 
+.update-delete-buttons {
+  margin-top: 2rem;
+}
+
 .update-delete-buttons a {
   text-decoration: none;
 }
@@ -369,6 +373,7 @@ section {
   margin-top: 1rem;
   margin-right: 1rem;
   width: 100%;
+  max-width: 20rem;
 }
 
 
