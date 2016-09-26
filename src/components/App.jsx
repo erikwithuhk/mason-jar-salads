@@ -13,7 +13,6 @@ class App extends Component {
       userLoggedIn: false,
       userID: null,
       username: null,
-      userRecipes: [],
       recipes: [],
     };
     this.signOut = this.signOut.bind(this);
@@ -67,6 +66,7 @@ class App extends Component {
               this.setState({
                 userLoggedIn: false,
                 userID: null,
+                username: null,
               });
             });
   }

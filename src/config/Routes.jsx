@@ -12,7 +12,7 @@ import Login from '../components/authentication/Login.jsx';
 const routes = () => (
   <Router history={hashHistory} >
     <Route path="/" component={App} >
-      <IndexRoute component={RecipeList} onEnter={requireAuth} />
+      <IndexRoute component={RecipeList} />
       <Route path="recipes">
         <Route path="new" component={RecipeForm} onEnter={requireAuth} />
         <Route path=":id">

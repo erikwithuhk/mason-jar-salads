@@ -9,6 +9,12 @@ const propTypes = {
 };
 
 class RecipeList extends Component {
+  generateRecipeListHeader() {
+    if (this.props.params.username) {
+      return `${this.props.params.username}'s Recipes`;
+    }
+    return 'Browse Recipes';
+  }
   renderRecipeCards() {
     const recipes = this.props.recipes;
     const recipeCards = recipes.map((recipe) => {
@@ -39,6 +45,7 @@ class RecipeList extends Component {
   render() {
     return (
       <section className="recipes">
+        <h2>{this.generateRecipeListHeader()}</h2>
         {this.renderRecipeCards()}
         <Link to="/recipes/new"><button className="new-recipe-button">+</button></Link>
       </section>
