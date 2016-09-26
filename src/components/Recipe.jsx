@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 const propTypes = {
   recipes: React.PropTypes.array,
   params: React.PropTypes.object,
-  updateRecipe: React.PropTypes.func,
   deleteRecipe: React.PropTypes.func,
   redirectToRecipes: React.PropTypes.func,
 };
@@ -19,7 +18,6 @@ class Recipe extends Component {
         ingredients: {},
       },
     };
-    this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
   componentDidMount() {
@@ -41,9 +39,6 @@ class Recipe extends Component {
         });
       }
     });
-  }
-  handleUpdate() {
-
   }
   handleDelete() {
     const recipeID = this.props.params.id;

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 
 const propTypes = {
+  recipes: React.PropTypes.array,
   createRecipe: React.PropTypes.func,
   redirectToRecipes: React.PropTypes.func,
+  params: React.PropTypes.object,
 };
 
 class RecipeForm extends Component {
@@ -22,11 +24,45 @@ class RecipeForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
   }
+  componentDidMount() {
+    if (this.props.params.id) {
+      this.getRecipeData();
+    } else {
+      console.log('New recipe');
+    }
+  }
+  componentWillReceiveProps(nextprops) {
+    const id = this.props.params.id;
+    this.getRecipeData(nextprops);
+  }
+  getRecipeData(props = this.props) {
+    const id = props.params.id;
+    props.recipes.forEach((recipe) => {
+      if (recipe.id === id) {
+        this.setState({
+          name: recipe.name,
+          greens: recipe.greens,
+          beans: recipe.beans,
+          grains: recipe.grains,
+          veggies: recipe.veggies,
+          sweet: recipe.sweet,
+          crunchy: recipe.crunchy,
+          dressing: recipe.dressing,
+        });
+      }
+    });
+  }
   handleChange(e) {
     const field = e.target.name;
     const stateObject = {};
     stateObject[field] = e.target.value;
     this.setState(stateObject);
+  }
+  submitText() {
+    if (this.props.params.id) {
+      return 'Update recipe';
+    }
+    return 'Create recipe';
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -48,6 +84,7 @@ class RecipeForm extends Component {
               type="text"
               name="name"
               placeholder="My delicious salad"
+              value={this.state.name}
               onChange={this.handleChange}
             />
           </label>
@@ -125,7 +162,7 @@ class RecipeForm extends Component {
           <input
             className="new-recipe-form__submit"
             type="submit"
-            value="Create recipe"
+            value={this.submitText()}
           />
           <button onClick={this.handleCancel}>Cancel</button>
         </form>
