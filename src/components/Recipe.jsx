@@ -6,15 +6,28 @@ const propTypes = {
 };
 
 class Recipe extends Component {
-  render() {
-    // const ingredientElements = this.props.ingredients.map((ingredient) => {
-    //   return (
-    //     <li className="ingredients-list__ingredient">{ingredient}</li>
-    //   );
-    // });
+  constructor() {
+    super();
+    this.state = {
+      currentRecipe: {
+        name: '',
+        username: '',
+        ingredients: [''],
+      },
+    };
+  }
+  componentWillReceiveProps(nextprops) {
     const id = this.props.params.id;
-    const defaultRecipe = { name: 'Recipe title', username: 'Recipe author', ingredients: ['Ingredients list'] };
-    const recipe = this.props.recipes[id] || defaultRecipe;
+    nextprops.recipes.forEach((recipe) => {
+      if (recipe.id === id) {
+        this.setState({
+          currentRecipe: recipe,
+        });
+      }
+    });
+  }
+  render() {
+    const recipe = this.state.currentRecipe;
     return (
       <section className="recipe-view">
         <h1 className="recipe-view__name">{recipe.name}</h1>
