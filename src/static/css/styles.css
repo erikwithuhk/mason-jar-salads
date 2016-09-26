@@ -329,15 +329,18 @@ section {
   padding: 0.5rem;
 }
 
+.new-recipe-button:hover {
+  background-color: #FFC107;
+  border-color: #FFC107;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
 
 
 /* =======================
 6. Recipe view
 =======================*/
-
-.ingredients-list {
-  list-style: none;
-}
 
 .recipe-view__author a {
   color: #00796B;
@@ -346,6 +349,14 @@ section {
 
 .recipe-view__author a:hover {
   color: #FFC107;
+}
+
+.ingredients-header {
+  margin-top: 1rem;
+}
+
+.ingredients-list {
+  list-style: none;
 }
 
 .update-delete-buttons a {
