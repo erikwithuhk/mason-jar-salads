@@ -16,7 +16,8 @@ class NewRecipe extends Component {
     };
   }
   handleChange(e) {
-    console.log(e.target);
+    const isIngredient = e.target.getAttribute('data-ingredient');
+    console.log(isIngredient);
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -33,6 +34,7 @@ class NewRecipe extends Component {
               type="text"
               name="recipe-name"
               placeholder="My delicious salad"
+              data-ingredient="false"
               onChange={this.handleChange}
             />
           </label>
@@ -44,6 +46,7 @@ class NewRecipe extends Component {
               type="text"
               name="greens"
               placeholder="Kale, romaine lettuce, spinach..."
+              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -54,6 +57,7 @@ class NewRecipe extends Component {
               type="text"
               name="beans"
               placeholder="Chick peas, white beans, lentils..."
+              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -64,6 +68,7 @@ class NewRecipe extends Component {
               type="text"
               name="grains"
               placeholder="Quinoa, bulgar wheat, pasta..."
+              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -74,6 +79,7 @@ class NewRecipe extends Component {
               type="text"
               name="veggies"
               placeholder="Carrots, peppers, roasted squash..."
+              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -84,6 +90,7 @@ class NewRecipe extends Component {
               type="text"
               name="sweet"
               placeholder="Raisins, diced apple, mango, ..."
+              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -94,6 +101,7 @@ class NewRecipe extends Component {
               type="text"
               name="crunchy"
               placeholder="Almonds, walnuts, croutons..."
+              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
