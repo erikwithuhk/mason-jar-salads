@@ -26,6 +26,19 @@ class Recipe extends Component {
       }
     });
   }
+  // componentDidMount() {
+  //   this.getCurrentRecipe();
+  // }
+  componentDidMount() {
+    const id = this.props.params.id;
+    this.props.recipes.forEach((recipe) => {
+      if (recipe.id === id) {
+        this.setState({
+          currentRecipe: recipe,
+        });
+      }
+    });
+  }
   render() {
     const recipe = this.state.currentRecipe;
     let keyValue = 0;
