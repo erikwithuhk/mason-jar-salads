@@ -5,6 +5,7 @@ import Header from './Header.jsx';
 
 const propTypes = {
   children: React.PropTypes.element.isRequired,
+  location: React.PropTypes.object,
 };
 
 class App extends Component {
@@ -41,9 +42,9 @@ class App extends Component {
       this.props.location.pathname !== '/register') {
       return (
         <Header
-        userLoggedIn={this.state.userLoggedIn}
-        username={this.state.username}
-        signOut={this.signOut}
+          userLoggedIn={this.state.userLoggedIn}
+          username={this.state.username}
+          signOut={this.signOut}
         />
       );
     }
