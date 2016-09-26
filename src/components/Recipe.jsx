@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 const propTypes = {
   recipes: React.PropTypes.array,
   params: React.PropTypes.object,
+  currentUserID: React.PropTypes.string,
   deleteRecipe: React.PropTypes.func,
   redirectToRecipes: React.PropTypes.func,
 };
@@ -15,6 +16,7 @@ class Recipe extends Component {
       currentRecipe: {
         name: '',
         username: '',
+        userID: '',
         ingredients: {},
       },
     };
@@ -39,6 +41,23 @@ class Recipe extends Component {
         });
       }
     });
+  }
+  recipeEditDeleteButtons() {
+    if (this.state.currentRecipe.userID === this.props.currentUserID) {
+      return (
+        <div className="update-delete-buttons">
+          <Link to={`/recipes/${this.props.params.id}/update`}>
+            <button className="recipe-button update-button">Update recipe</button>
+          </Link>
+          <button
+            className="recipe-button delete-button"
+            onClick={this.handleDelete}
+          >
+          Delete recipe
+          </button>
+        </div>
+      );
+    }
   }
   handleDelete() {
     const recipeID = this.props.params.id;
@@ -70,15 +89,7 @@ class Recipe extends Component {
             1/2 cup {recipe.ingredients.dressing} dressing
           </li>
         </ul>
-        <Link to={`/recipes/${this.props.params.id}/update`}>
-          <button className="recipe-button update-button">Update recipe</button>
-        </Link>
-        <button
-          className="recipe-button delete-button"
-          onClick={this.handleDelete}
-        >
-          Delete recipe
-        </button>
+        {this.recipeEditDeleteButtons()}
       </section>
     );
   }

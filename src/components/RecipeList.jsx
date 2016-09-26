@@ -4,7 +4,6 @@ import RecipeCard from './RecipeCard.jsx';
 
 const propTypes = {
   params: React.PropTypes.object,
-  currentUserID: React.PropTypes.string,
   recipes: React.PropTypes.array,
 };
 
