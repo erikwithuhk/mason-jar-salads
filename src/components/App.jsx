@@ -42,23 +42,6 @@ class App extends Component {
       this.setState({ username });
     });
   }
-  showHeaderOnLogin() {
-    if (this.state.userLoggedIn) {
-      return (
-        <header>
-          <nav className="top-nav">
-            <h1 className="top-nav__brand">Mason Jar Salads</h1>
-            <nav className="top-nav__sub-nav">
-              <Link to="/" >All recipes</Link>
-              <Link to={`/${this.state.username}`} >My recipes</Link>
-              <Link to="/welcome" onClick={this.signOut}>Sign out</Link>
-            </nav>
-          </nav>
-        </header>
-      );
-    }
-    return false;
-  }
   signOut() {
     firebase.auth()
             .signOut()
@@ -114,11 +97,6 @@ class App extends Component {
     const recipeData = {};
     recipeData[`/recipes/${recipeKey}`] = nestedData;
     return firebase.database().ref().update(recipeData);
-
-    // const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipes`);
-    // userRecipesRef.on('value', (snapshot) => {
-    //   console.log(snapshot.val());
-    // });
   }
   deleteRecipe(recipeID) {
     firebase.database().ref(`recipes/${recipeID}`).remove();
@@ -137,7 +115,16 @@ class App extends Component {
     });
     return (
       <div className="container">
-        {this.showHeaderOnLogin()}
+        <header>
+          <nav className="top-nav">
+            <h1 className="top-nav__brand">Mason Jar Salads</h1>
+            <nav className="top-nav__sub-nav">
+              <Link to="/" >All recipes</Link>
+              <Link to={`/${this.state.username}`} >My recipes</Link>
+              <Link to="/welcome" onClick={this.signOut}>Sign out</Link>
+            </nav>
+          </nav>
+        </header>
         <main>
           {childrenWithProps}
         </main>

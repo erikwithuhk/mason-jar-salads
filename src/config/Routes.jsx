@@ -14,14 +14,14 @@ const routes = () => (
     <Route path="/" component={App} >
       <IndexRoute component={RecipeList} />
       <Route path="recipes">
-        <Route path="new" component={RecipeForm} onEnter={requireAuth} />
+        <Route path="new" component={RecipeForm} />
         <Route path=":id">
-          <IndexRoute component={Recipe} onEnter={requireAuth} />
-          <Route path="update" component={RecipeForm} onEnter={requireAuth} />
+          <IndexRoute component={Recipe} />
+          <Route path="update" component={RecipeForm} />
         </Route>
       </Route>
       <Route path=":username">
-        <IndexRoute component={RecipeList} onEnter={requireAuth} />
+        <IndexRoute component={RecipeList} />
       </Route>
       <Route path="welcome" component={Authentication} />
       <Route path="register" component={Registration} />
