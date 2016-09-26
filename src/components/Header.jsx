@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 const propTypes = {
   userLoggedIn: React.PropTypes.bool,
   username: React.PropTypes.string,
+  signOut: React.PropTypes.func,
 };
 
 class Header extends Component {
@@ -13,7 +14,7 @@ class Header extends Component {
         <nav className="top-nav__sub-nav">
           <Link to="/" >All recipes</Link>
           <Link to={`/users/${this.props.username}`} >My recipes</Link>
-          <Link to="/welcome" onClick={this.signOut}>Sign out</Link>
+          <Link to="/welcome" onClick={this.props.signOut}>Sign out</Link>
         </nav>
       );
     }

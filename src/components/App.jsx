@@ -35,6 +35,19 @@ class App extends Component {
               });
     }, 200);
   }
+  showHeader() {
+    if (this.props.location.pathname !== '/welcome' &&
+      this.props.location.pathname !== '/login' &&
+      this.props.location.pathname !== '/register') {
+      return (
+        <Header
+        userLoggedIn={this.state.userLoggedIn}
+        username={this.state.username}
+        signOut={this.signOut}
+        />
+      );
+    }
+  }
   getUsernameByID(userID) {
     const userRef = firebase.database().ref(`users/${userID}`);
     userRef.on('value', (snapshot) => {
@@ -116,10 +129,7 @@ class App extends Component {
     });
     return (
       <div className="container">
-        <Header
-          userLoggedIn={this.state.userLoggedIn}
-          username={this.state.username}
-        />
+        {this.showHeader()}
         <main>
           {childrenWithProps}
         </main>
