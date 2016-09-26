@@ -28,6 +28,13 @@ class Recipe extends Component {
   }
   render() {
     const recipe = this.state.currentRecipe;
+    let keyValue = 0;
+    const ingredientElements = recipe.ingredients.map((ingredient) => {
+      keyValue += 1;
+      return (
+        <li key={keyValue} className="ingredients-list__ingredient">{ingredient}</li>
+      );
+    });
     return (
       <section className="recipe-view">
         <h1 className="recipe-view__name">{recipe.name}</h1>
@@ -35,7 +42,7 @@ class Recipe extends Component {
 
         <h3 className="ingredients-header">Ingredients</h3>
         <ul className="ingredients-list">
-          {/* {ingredientElements} */}
+          {ingredientElements}
         </ul>
       </section>
     );
