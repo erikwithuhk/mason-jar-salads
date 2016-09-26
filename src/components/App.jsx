@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
 import * as firebase from 'firebase';
+import Header from './Header.jsx';
 
 const propTypes = {
   children: React.PropTypes.element.isRequired,
@@ -115,16 +116,10 @@ class App extends Component {
     });
     return (
       <div className="container">
-        <header>
-          <nav className="top-nav">
-            <h1 className="top-nav__brand">Mason Jar Salads</h1>
-            <nav className="top-nav__sub-nav">
-              <Link to="/" >All recipes</Link>
-              <Link to={`/${this.state.username}`} >My recipes</Link>
-              <Link to="/welcome" onClick={this.signOut}>Sign out</Link>
-            </nav>
-          </nav>
-        </header>
+        <Header
+          userLoggedIn={this.state.userLoggedIn}
+          username={this.state.username}
+        />
         <main>
           {childrenWithProps}
         </main>
