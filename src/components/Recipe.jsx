@@ -57,7 +57,8 @@ class Recipe extends Component {
           <li className="ingredients-list__ingredient">1 15-oz can {recipe.ingredients.beans}</li>
           <li className="ingredients-list__ingredient">2 cups {recipe.ingredients.veggies}</li>
           <li className="ingredients-list__ingredient">2 cups {recipe.ingredients.sweet}</li>
-          <li className="ingredients-list__ingredient">1 cups {recipe.ingredients.crunchy}</li>
+          <li className="ingredients-list__ingredient">1 cup {recipe.ingredients.crunchy}</li>
+          <li className="ingredients-list__ingredient">1/2 cup {recipe.ingredients.dressing} dressing</li>
         </ul>
       </section>
     );
