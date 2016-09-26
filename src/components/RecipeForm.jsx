@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 const propTypes = {
-  recipes: React.PropTypes.array,
-  createRecipe: React.PropTypes.func,
-  redirectToRecipes: React.PropTypes.func,
   params: React.PropTypes.object,
+  recipes: React.PropTypes.array,
+  publishRecipe: React.PropTypes.func,
+  redirectToRecipes: React.PropTypes.func,
 };
 
 class RecipeForm extends Component {
@@ -65,9 +65,9 @@ class RecipeForm extends Component {
     e.preventDefault();
     const recipeID = this.props.params.id;
     if (recipeID) {
-      this.props.createRecipe(this.state);
+      this.props.publishRecipe(this.state, recipeID);
     } else {
-      this.props.updateRecipe(recipeID, this.state);
+      this.props.publishRecipe(this.state);
     }
     this.props.redirectToRecipes();
   }

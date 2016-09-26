@@ -16,7 +16,7 @@ class App extends Component {
       recipes: [],
     };
     this.signOut = this.signOut.bind(this);
-    this.createRecipe = this.createRecipe.bind(this);
+    this.publishRecipe = this.publishRecipe.bind(this);
     this.deleteRecipe = this.deleteRecipe.bind(this);
   }
   componentDidMount() {
@@ -86,7 +86,7 @@ class App extends Component {
       this.setState({ recipes });
     });
   }
-  createRecipe(data) {
+  publishRecipe(data, recipeID) {
     const nestedData = {
       userID: this.state.userID,
       username: this.state.username,
@@ -101,7 +101,13 @@ class App extends Component {
         dressing: data.dressing.toLowerCase(),
       },
     };
-    const recipeKey = firebase.database().ref('recipes').push().key;
+
+    let recipeKey;
+    if (recipeID) {
+      recipeKey = recipeID;
+    } else {
+      recipeKey = firebase.database().ref('recipes').push().key;
+    }
 
     const recipeData = {};
     recipeData[`/recipes/${recipeKey}`] = nestedData;
@@ -121,7 +127,7 @@ class App extends Component {
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
       recipes: this.state.recipes,
-      createRecipe: this.createRecipe,
+      publishRecipe: this.publishRecipe,
       deleteRecipe: this.deleteRecipe,
       redirectToRecipes: this.redirectToRecipes,
     });
