@@ -12,9 +12,9 @@ class Header extends Component {
     if (this.props.userLoggedIn) {
       return (
         <nav className="top-nav__sub-nav">
-          <Link to="/" >All recipes</Link>
+          <Link to="/" >Browse recipes</Link>
           <Link to={`/users/${this.props.username}`} >My recipes</Link>
-          <Link to="/welcome" onClick={this.props.signOut}>Sign out</Link>
+          <Link to="/" onClick={this.props.signOut}>Sign out</Link>
         </nav>
       );
     }
