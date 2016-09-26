@@ -31,10 +31,10 @@ class App extends Component {
                     userID: user.uid,
                   });
                   this.getUsernameByID(this.state.userID);
-                  this.getRecipes();
                 }
               });
     }, 200);
+    this.getRecipes();
   }
   showHeader() {
     if (this.props.location.pathname !== '/welcome' &&
