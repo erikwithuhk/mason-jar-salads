@@ -2,7 +2,18 @@ import React, { Component } from 'react';
 
 class NewRecipe extends Component {
   constructor() {
-    
+    super();
+    this.state = {
+      name: '',
+      ingredients: {
+        greens: '',
+        beans: '',
+        grains: '',
+        veggies: '',
+        sweet: '',
+        crunchy: '',
+      }
+    };
   }
   handleChange(e) {
     console.log(e.target);
