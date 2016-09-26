@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+const propTypes = {
+  createRecipe: React.PropTypes.func,
+};
+
 class NewRecipe extends Component {
   constructor() {
     super();
@@ -13,17 +17,17 @@ class NewRecipe extends Component {
       crunchy: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(e) {
     const field = e.target.name;
-    const isIngredient = e.target.getAttribute('data-ingredient');
     const stateObject = {};
     stateObject[field] = e.target.value;
     this.setState(stateObject);
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log('submitted');
+    this.props.createRecipe(this.state);
   }
   render() {
     return (
@@ -36,7 +40,6 @@ class NewRecipe extends Component {
               type="text"
               name="name"
               placeholder="My delicious salad"
-              data-ingredient="false"
               onChange={this.handleChange}
             />
           </label>
@@ -48,7 +51,6 @@ class NewRecipe extends Component {
               type="text"
               name="greens"
               placeholder="Kale, romaine lettuce, spinach..."
-              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -59,7 +61,6 @@ class NewRecipe extends Component {
               type="text"
               name="beans"
               placeholder="Chick peas, white beans, lentils..."
-              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -70,7 +71,6 @@ class NewRecipe extends Component {
               type="text"
               name="grains"
               placeholder="Quinoa, bulgar wheat, pasta..."
-              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -81,7 +81,6 @@ class NewRecipe extends Component {
               type="text"
               name="veggies"
               placeholder="Carrots, peppers, roasted squash..."
-              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -92,7 +91,6 @@ class NewRecipe extends Component {
               type="text"
               name="sweet"
               placeholder="Raisins, diced apple, mango, ..."
-              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -103,7 +101,6 @@ class NewRecipe extends Component {
               type="text"
               name="crunchy"
               placeholder="Almonds, walnuts, croutons..."
-              data-ingredient="true"
               onChange={this.handleChange}
             />
           </label>
@@ -117,5 +114,7 @@ class NewRecipe extends Component {
     );
   }
 }
+
+NewRecipe.propTypes = propTypes;
 
 export default NewRecipe;

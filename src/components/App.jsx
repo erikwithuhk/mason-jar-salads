@@ -85,25 +85,29 @@ class App extends Component {
               });
             });
   }
-  createRecipe(name, ing1, ing2) {
-    const data = {
-      name,
-      userID: this.state.userID,
-      username: this.state.username,
-      ingredients: [`1 cup ${ing1}`, `2 tbsp ${ing2}`],
+  createRecipe(data) {
+    const nestedData = {
+      name: data.name,
+      ingredients: {
+        greens: data.greens,
+        beans: data.beans,
+        grains: data.grains,
+        veggies: data.veggies,
+        sweet: data.sweet,
+        crunchy: data.crunchy,
+      },
     };
-
-    const recipeKey = firebase.database().ref('recipes').push().key;
-
-    const recipeData = {};
-    recipeData[`/recipes/${recipeKey}`] = data;
-    return firebase.database().ref().update(recipeData);
-
-    // Get the existing user recipes array
-    const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipes`);
-    userRecipesRef.on('value', (snapshot) => {
-      console.log(snapshot.val());
-    });
+    console.log(nestedData);
+    // const recipeKey = firebase.database().ref('recipes').push().key;
+    //
+    // const recipeData = {};
+    // recipeData[`/recipes/${recipeKey}`] = nestedData;
+    // return firebase.database().ref().update(recipeData);
+    //
+    // const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipes`);
+    // userRecipesRef.on('value', (snapshot) => {
+    //   console.log(snapshot.val());
+    // });
   }
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
