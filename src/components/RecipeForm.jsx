@@ -27,12 +27,9 @@ class RecipeForm extends Component {
   componentDidMount() {
     if (this.props.params.id) {
       this.getRecipeData();
-    } else {
-      console.log('New recipe');
     }
   }
   componentWillReceiveProps(nextprops) {
-    const id = this.props.params.id;
     this.getRecipeData(nextprops);
   }
   getRecipeData(props = this.props) {
@@ -66,7 +63,12 @@ class RecipeForm extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createRecipe(this.state);
+    const recipeID = this.props.params.id;
+    if (recipeID) {
+      this.props.createRecipe(this.state);
+    } else {
+      this.props.updateRecipe(recipeID, this.state);
+    }
     this.props.redirectToRecipes();
   }
   handleCancel(e) {
