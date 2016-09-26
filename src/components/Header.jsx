@@ -7,16 +7,28 @@ const propTypes = {
 };
 
 class Header extends Component {
+  loggedInLinks() {
+    if (this.props.userLoggedIn) {
+      return (
+        <nav className="top-nav__sub-nav">
+          <Link to="/" >All recipes</Link>
+          <Link to={`/users/${this.props.username}`} >My recipes</Link>
+          <Link to="/welcome" onClick={this.signOut}>Sign out</Link>
+        </nav>
+      );
+    }
+    return (
+      <nav className="top-nav__sub-nav">
+        <Link to="/login" >Log in</Link>
+      </nav>
+    );
+  }
   render() {
     return (
       <header>
         <nav className="top-nav">
           <h1 className="top-nav__brand">Mason Jar Salads</h1>
-          <nav className="top-nav__sub-nav">
-            <Link to="/" >All recipes</Link>
-            <Link to={`/${this.props.username}`} >My recipes</Link>
-            <Link to="/welcome" onClick={this.signOut}>Sign out</Link>
-          </nav>
+          {this.loggedInLinks()}
         </nav>
       </header>
     );
