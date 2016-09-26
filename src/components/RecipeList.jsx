@@ -19,7 +19,7 @@ class RecipeList extends Component {
     const recipes = this.props.recipes;
     const recipeCards = recipes.map((recipe) => {
       if (this.props.params.username) {
-        if (recipe.userID === this.props.currentUserID) {
+        if (recipe.username === this.props.params.username) {
           return (
             <RecipeCard
               key={recipe.id}
