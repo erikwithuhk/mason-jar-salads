@@ -416,9 +416,12 @@ section {
 }
 
 @media (min-width: 321px) {
+  .new-recipe-form__submit {
+    margin-right: 2%;
+  }
+
   .new-recipe-form__submit,
   .new-recipe-form__cancel {
-    margin-right: 2%;
-    width: 46%;
+    width: 49%;
   }
 }
