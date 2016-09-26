@@ -97,21 +97,21 @@ class App extends Component {
         crunchy: data.crunchy,
       },
     };
-    console.log(nestedData);
-    // const recipeKey = firebase.database().ref('recipes').push().key;
-    //
-    // const recipeData = {};
-    // recipeData[`/recipes/${recipeKey}`] = nestedData;
-    // return firebase.database().ref().update(recipeData);
-    //
-    // const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipes`);
-    // userRecipesRef.on('value', (snapshot) => {
-    //   console.log(snapshot.val());
-    // });
+    const recipeKey = firebase.database().ref('recipes').push().key;
+
+    const recipeData = {};
+    recipeData[`/recipes/${recipeKey}`] = nestedData;
+    return firebase.database().ref().update(recipeData);
+
+    const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipes`);
+    userRecipesRef.on('value', (snapshot) => {
+      console.log(snapshot.val());
+    });
   }
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
       recipes: this.state.recipes,
+      createRecipe: this.createRecipe,
     });
     return (
       <div className="container">
