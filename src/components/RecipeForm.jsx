@@ -41,13 +41,13 @@ class RecipeForm extends Component {
       if (recipe.id === id) {
         this.setState({
           name: recipe.name,
-          greens: recipe.greens,
-          beans: recipe.beans,
-          grains: recipe.grains,
-          veggies: recipe.veggies,
-          sweet: recipe.sweet,
-          crunchy: recipe.crunchy,
-          dressing: recipe.dressing,
+          greens: recipe.ingredients.greens,
+          beans: recipe.ingredients.beans,
+          grains: recipe.ingredients.grains,
+          veggies: recipe.ingredients.veggies,
+          sweet: recipe.ingredients.sweet,
+          crunchy: recipe.ingredients.crunchy,
+          dressing: recipe.ingredients.dressing,
         });
       }
     });
@@ -96,6 +96,7 @@ class RecipeForm extends Component {
               type="text"
               name="greens"
               placeholder="Kale, romaine lettuce, spinach..."
+              value={this.state.greens}
               onChange={this.handleChange}
             />
           </label>
@@ -106,6 +107,7 @@ class RecipeForm extends Component {
               type="text"
               name="beans"
               placeholder="Chick peas, white beans, lentils..."
+              value={this.state.beans}
               onChange={this.handleChange}
             />
           </label>
@@ -116,6 +118,7 @@ class RecipeForm extends Component {
               type="text"
               name="grains"
               placeholder="Quinoa, bulgar wheat, pasta..."
+              value={this.state.grains}
               onChange={this.handleChange}
             />
           </label>
@@ -126,6 +129,7 @@ class RecipeForm extends Component {
               type="text"
               name="veggies"
               placeholder="Carrots, peppers, roasted squash..."
+              value={this.state.veggies}
               onChange={this.handleChange}
             />
           </label>
@@ -136,6 +140,7 @@ class RecipeForm extends Component {
               type="text"
               name="sweet"
               placeholder="Raisins, diced apple, mango, ..."
+              value={this.state.sweet}
               onChange={this.handleChange}
             />
           </label>
@@ -146,6 +151,7 @@ class RecipeForm extends Component {
               type="text"
               name="crunchy"
               placeholder="Almonds, walnuts, croutons..."
+              value={this.state.crunchy}
               onChange={this.handleChange}
             />
           </label>
@@ -156,6 +162,7 @@ class RecipeForm extends Component {
               type="text"
               name="dressing"
               placeholder="Balsamic vinaigrette, blue cheese..."
+              value={this.state.dressing}
               onChange={this.handleChange}
             />
           </label>
