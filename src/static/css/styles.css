@@ -313,6 +313,13 @@ section {
   font-weight: normal;
 }
 
+.new-recipe-button {
+  font-size: 3rem;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
 
 
 /* =======================

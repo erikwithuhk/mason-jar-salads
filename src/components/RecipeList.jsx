@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import RecipeCard from './RecipeCard.jsx';
 
 const propTypes = {
@@ -22,6 +23,7 @@ class RecipeList extends Component {
     return (
       <section className="recipes">
         {this.renderRecipeCards()}
+        <Link to="/recipes/new"><button className="new-recipe-button">+</button></Link>
       </section>
     );
   }
