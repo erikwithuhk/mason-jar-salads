@@ -14641,6 +14641,11 @@ var Header = function (_Component) {
         { className: 'top-nav__sub-nav' },
         _react2.default.createElement(
           _reactRouter.Link,
+          { to: '/' },
+          'Browse recipes'
+        ),
+        _react2.default.createElement(
+          _reactRouter.Link,
           { to: '/register' },
           'Create account'
         ),
