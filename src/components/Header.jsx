@@ -20,6 +20,7 @@ class Header extends Component {
     }
     return (
       <nav className="top-nav__sub-nav">
+        <Link to="/register" >Create account</Link>
         <Link to="/login" >Log in</Link>
       </nav>
     );
