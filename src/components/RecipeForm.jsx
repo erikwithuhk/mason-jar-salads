@@ -90,7 +90,6 @@ class RecipeForm extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <h3>Ingredients</h3>
           <label htmlFor="greens">
             <h4>Greens</h4>
             <input
@@ -167,13 +166,18 @@ class RecipeForm extends Component {
               value={this.state.dressing}
               onChange={this.handleChange}
             />
-          </label>
+          </label><br />
           <input
-            className="new-recipe-form__submit"
+            className="new-recipe-form__submit btn btn--primary"
             type="submit"
             value={this.submitText()}
           />
-          <button onClick={this.handleCancel}>Cancel</button>
+          <button
+            onClick={this.handleCancel}
+            className="new-recipe-form__cancel btn btn--secondary"
+          >
+          Cancel
+          </button>
         </form>
       </section>
     );

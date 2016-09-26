@@ -6,6 +6,7 @@ Contents:
   4. Navs
   5. Recipe list
   6. Recipe view
+  7. Recipe form
   Media queries
 =======================*/
 
@@ -252,7 +253,7 @@ section {
 =======================*/
 
 .recipes {
-  max-width: 960px;
+  max-width: 700px;
   margin: 1rem auto;
   text-align: center;
 }
@@ -367,8 +368,38 @@ section {
   display: inline-block;
   margin-top: 1rem;
   margin-right: 1rem;
+  width: 100%;
 }
 
+
+
+/* =======================
+7. Recipe form
+=======================*/
+
+.new-recipe-form {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.new-recipe-form__input {
+  border: 1px solid #BDBDBD;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.new-recipe-form__submit,
+.new-recipe-form__cancel {
+  display: inline-block;
+  margin: 0.5rem auto;
+  width: 100%;
+  max-width: 20rem;
+}
 
 
 
@@ -376,10 +407,18 @@ section {
 # Media queries
 =======================*/
 
-@media (min-width: 970px) {
+@media (min-width: 710px) {
   section {
     margin-left: auto;
     margin-right: auto;
-    width: 960px;
+    width: 700px;
+  }
+}
+
+@media (min-width: 321px) {
+  .new-recipe-form__submit,
+  .new-recipe-form__cancel {
+    margin-right: 2%;
+    width: 46%;
   }
 }
