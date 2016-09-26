@@ -38,21 +38,26 @@ class Recipe extends Component {
   }
   render() {
     const recipe = this.state.currentRecipe;
-    let keyValue = 0;
-    const ingredientElements = recipe.ingredients.map((ingredient) => {
-      keyValue += 1;
-      return (
-        <li key={keyValue} className="ingredients-list__ingredient">{ingredient}</li>
-      );
-    });
+    // let keyValue = 0;
+    // const ingredientElements = recipe.ingredients.map((ingredient) => {
+    //   keyValue += 1;
+    //   return (
+    //     <li key={keyValue} className="ingredients-list__ingredient">{ingredient}</li>
+    //   );
+    // });
     return (
       <section className="recipe-view">
         <h1 className="recipe-view__name">{recipe.name}</h1>
         <h4 className="recipe-view__author">Created by: <a href="#">{recipe.username}</a></h4>
-
+        <p className="yield">Makes 4 1-quart mason jar salads</p>
         <h3 className="ingredients-header">Ingredients</h3>
         <ul className="ingredients-list">
-          {ingredientElements}
+          <li className="ingredients-list__ingredient">4 cups {recipe.ingredients.greens}</li>
+          <li className="ingredients-list__ingredient">4 cups {recipe.ingredients.grains}, cooked</li>
+          <li className="ingredients-list__ingredient">1 15-oz can {recipe.ingredients.beans}</li>
+          <li className="ingredients-list__ingredient">2 cups {recipe.ingredients.veggies}</li>
+          <li className="ingredients-list__ingredient">2 cups {recipe.ingredients.sweet}</li>
+          <li className="ingredients-list__ingredient">1 cups {recipe.ingredients.crunchy}</li>
         </ul>
       </section>
     );

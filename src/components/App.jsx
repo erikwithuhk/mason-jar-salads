@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, hashHistory } from 'react-router';
-import request from 'superagent';
 import * as firebase from 'firebase';
 
 const propTypes = {
@@ -17,6 +16,7 @@ class App extends Component {
       recipes: [],
     };
     this.signOut = this.signOut.bind(this);
+    this.createRecipe = this.createRecipe.bind(this);
   }
   componentDidMount() {
     setTimeout(() => {
@@ -87,6 +87,8 @@ class App extends Component {
   }
   createRecipe(data) {
     const nestedData = {
+      userID: this.state.userID,
+      username: this.state.username,
       name: data.name,
       ingredients: {
         greens: data.greens,
@@ -103,10 +105,10 @@ class App extends Component {
     recipeData[`/recipes/${recipeKey}`] = nestedData;
     return firebase.database().ref().update(recipeData);
 
-    const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipes`);
-    userRecipesRef.on('value', (snapshot) => {
-      console.log(snapshot.val());
-    });
+    // const userRecipesRef = firebase.database().ref(`users/${this.state.userID}/recipes`);
+    // userRecipesRef.on('value', (snapshot) => {
+    //   console.log(snapshot.val());
+    // });
   }
   redirectToRecipes() {
     hashHistory.push('/');
