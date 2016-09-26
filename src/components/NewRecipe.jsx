@@ -5,19 +5,21 @@ class NewRecipe extends Component {
     super();
     this.state = {
       name: '',
-      ingredients: {
-        greens: '',
-        beans: '',
-        grains: '',
-        veggies: '',
-        sweet: '',
-        crunchy: '',
-      },
+      greens: '',
+      beans: '',
+      grains: '',
+      veggies: '',
+      sweet: '',
+      crunchy: '',
     };
+    this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
+    const field = e.target.name;
     const isIngredient = e.target.getAttribute('data-ingredient');
-    console.log(isIngredient);
+    const stateObject = {};
+    stateObject[field] = e.target.value;
+    this.setState(stateObject);
   }
   handleSubmit(e) {
     e.preventDefault();
@@ -32,7 +34,7 @@ class NewRecipe extends Component {
             <input
               className="new-recipe-form__input"
               type="text"
-              name="recipe-name"
+              name="name"
               placeholder="My delicious salad"
               data-ingredient="false"
               onChange={this.handleChange}
