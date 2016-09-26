@@ -4,6 +4,7 @@ import RecipeCard from './RecipeCard.jsx';
 
 const propTypes = {
   params: React.PropTypes.object,
+  currentUsername: React.PropTypes.string,
   recipes: React.PropTypes.array,
 };
 
@@ -13,6 +14,13 @@ class RecipeList extends Component {
       return `${this.props.params.username}'s Recipes`;
     }
     return 'Browse Recipes';
+  }
+  showNewRecipeButton() {
+    if (this.props.params.username === this.props.currentUsername) {
+      return (
+        <Link to="/recipes/new"><button className="new-recipe-button">+</button></Link>
+      );
+    }
   }
   renderRecipeCards() {
     const recipes = this.props.recipes;
@@ -46,7 +54,7 @@ class RecipeList extends Component {
       <section className="recipes">
         <h2>{this.generateRecipeListHeader()}</h2>
         {this.renderRecipeCards()}
-        <Link to="/recipes/new"><button className="new-recipe-button">+</button></Link>
+        {this.showNewRecipeButton()}
       </section>
     );
   }

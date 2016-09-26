@@ -129,6 +129,7 @@ class App extends Component {
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
       currentUserID: this.state.userID,
+      currentUsername: this.state.username,
       recipes: this.state.recipes,
       publishRecipe: this.publishRecipe,
       deleteRecipe: this.deleteRecipe,
