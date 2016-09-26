@@ -5,7 +5,7 @@ const propTypes = {
   redirectToRecipes: React.PropTypes.func,
 };
 
-class NewRecipe extends Component {
+class RecipeForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -134,6 +134,6 @@ class NewRecipe extends Component {
   }
 }
 
-NewRecipe.propTypes = propTypes;
+RecipeForm.propTypes = propTypes;
 
-export default NewRecipe;
+export default RecipeForm;
