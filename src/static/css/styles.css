@@ -390,6 +390,7 @@ section {
 .new-recipe-form__input {
   border: 1px solid #BDBDBD;
   border-radius: 5px;
+  font-family: Raleway, sans-serif;
   font-size: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
