@@ -20,6 +20,9 @@ const routes = () => (
           <Route path="update" component={RecipeForm} onEnter={requireAuth} />
         </Route>
       </Route>
+      <Route path=":username">
+        <IndexRoute component={RecipeList} onEnter={requireAuth} />
+      </Route>
       <Route path="welcome" component={Authentication} />
       <Route path="register" component={Registration} />
       <Route path="login" component={Login} />
