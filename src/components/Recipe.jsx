@@ -3,6 +3,9 @@ import React, { Component } from 'react';
 const propTypes = {
   recipes: React.PropTypes.array,
   params: React.PropTypes.object,
+  updateRecipe: React.PropTypes.func,
+  deleteRecipe: React.PropTypes.func,
+  redirectToRecipes: React.PropTypes.func,
 };
 
 class Recipe extends Component {
@@ -12,9 +15,11 @@ class Recipe extends Component {
       currentRecipe: {
         name: '',
         username: '',
-        ingredients: [''],
+        ingredients: {},
       },
     };
+    this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
   componentDidMount() {
     const id = this.props.params.id;
@@ -40,7 +45,9 @@ class Recipe extends Component {
 
   }
   handleDelete() {
-    
+    const recipeID = this.props.params.id;
+    this.props.deleteRecipe(recipeID);
+    this.props.redirectToRecipes();
   }
   render() {
     const recipe = this.state.currentRecipe;

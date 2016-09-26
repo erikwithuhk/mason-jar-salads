@@ -17,6 +17,7 @@ class App extends Component {
     };
     this.signOut = this.signOut.bind(this);
     this.createRecipe = this.createRecipe.bind(this);
+    this.deleteRecipe = this.deleteRecipe.bind(this);
   }
   componentDidMount() {
     setTimeout(() => {
@@ -39,24 +40,6 @@ class App extends Component {
       const userData = snapshot.val();
       const username = userData.username;
       this.setState({ username });
-    });
-  }
-  getRecipes() {
-    const recipeListRef = firebase.database().ref('recipes');
-    recipeListRef.on('value', (snapshot) => {
-      const recipesData = snapshot.val();
-      let recipes = [];
-      recipes = Object.keys(recipesData).map((id) => {
-        const recipeData = recipesData[id];
-        return {
-          id,
-          name: recipeData.name,
-          userID: recipeData.userID,
-          username: recipeData.username,
-          ingredients: recipeData.ingredients,
-        };
-      });
-      this.setState({ recipes });
     });
   }
   showHeaderOnLogin() {
@@ -85,6 +68,24 @@ class App extends Component {
               });
             });
   }
+  getRecipes() {
+    const recipeListRef = firebase.database().ref('recipes');
+    recipeListRef.on('value', (snapshot) => {
+      const recipesData = snapshot.val();
+      let recipes = [];
+      recipes = Object.keys(recipesData).map((id) => {
+        const recipeData = recipesData[id];
+        return {
+          id,
+          name: recipeData.name,
+          userID: recipeData.userID,
+          username: recipeData.username,
+          ingredients: recipeData.ingredients,
+        };
+      });
+      this.setState({ recipes });
+    });
+  }
   createRecipe(data) {
     const nestedData = {
       userID: this.state.userID,
@@ -111,6 +112,9 @@ class App extends Component {
     //   console.log(snapshot.val());
     // });
   }
+  deleteRecipe(recipeID) {
+    firebase.database().ref(`recipes/${recipeID}`).remove();
+  }
   redirectToRecipes() {
     hashHistory.push('/');
   }
@@ -118,6 +122,7 @@ class App extends Component {
     const childrenWithProps = React.cloneElement(this.props.children, {
       recipes: this.state.recipes,
       createRecipe: this.createRecipe,
+      deleteRecipe: this.deleteRecipe,
       redirectToRecipes: this.redirectToRecipes,
     });
     return (
