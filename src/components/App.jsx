@@ -91,12 +91,13 @@ class App extends Component {
       username: this.state.username,
       name: data.name,
       ingredients: {
-        greens: data.greens,
-        beans: data.beans,
-        grains: data.grains,
-        veggies: data.veggies,
-        sweet: data.sweet,
-        crunchy: data.crunchy,
+        greens: data.greens.toLowerCase(),
+        beans: data.beans.toLowerCase(),
+        grains: data.grains.toLowerCase(),
+        veggies: data.veggies.toLowerCase(),
+        sweet: data.sweet.toLowerCase(),
+        crunchy: data.crunchy.toLowerCase(),
+        dressing: data.dressing.toLowerCase(),
       },
     };
     const recipeKey = firebase.database().ref('recipes').push().key;

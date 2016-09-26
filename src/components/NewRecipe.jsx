@@ -16,6 +16,7 @@ class NewRecipe extends Component {
       veggies: '',
       sweet: '',
       crunchy: '',
+      dressing: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -103,6 +104,16 @@ class NewRecipe extends Component {
               type="text"
               name="crunchy"
               placeholder="Almonds, walnuts, croutons..."
+              onChange={this.handleChange}
+            />
+          </label>
+          <label htmlFor="dressing">
+            <h4>Dressing</h4>
+            <input
+              className="new-recipe-form__input"
+              type="text"
+              name="dressing"
+              placeholder="Balsamic vinaigrette, blue cheese..."
               onChange={this.handleChange}
             />
           </label>
