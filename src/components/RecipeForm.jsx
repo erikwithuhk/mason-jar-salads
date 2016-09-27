@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 
 const propTypes = {
   params: React.PropTypes.object,
-  recipes: React.PropTypes.array,
+  router: React.PropTypes.object,
   publishRecipe: React.PropTypes.func,
-  redirectToRecipes: React.PropTypes.func,
+  currentUsername: React.PropTypes.string,
 };
 
 class RecipeForm extends Component {
@@ -69,11 +70,15 @@ class RecipeForm extends Component {
     } else {
       this.props.publishRecipe(this.state);
     }
-    this.props.redirectToRecipes();
+    this.props.router.push(`/users/${this.props.currentUsername}`);
   }
   handleCancel(e) {
     e.preventDefault();
-    this.props.redirectToRecipes();
+    if (this.props.params.id) {
+      this.props.router.push(`/recipes/${this.props.params.id}`);
+    } else {
+      this.props.router.push(`/users/${this.props.currentUsername}`);
+    }
   }
   render() {
     return (
@@ -186,4 +191,4 @@ class RecipeForm extends Component {
 
 RecipeForm.propTypes = propTypes;
 
-export default RecipeForm;
+export default withRouter(RecipeForm);

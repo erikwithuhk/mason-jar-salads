@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
 const propTypes = {
   recipes: React.PropTypes.array,
   params: React.PropTypes.object,
+  router: React.PropTypes.object,
   currentUserID: React.PropTypes.string,
+  currentUsername: React.PropTypes.string,
   deleteRecipe: React.PropTypes.func,
-  redirectToRecipes: React.PropTypes.func,
 };
 
 class Recipe extends Component {
@@ -62,7 +63,7 @@ class Recipe extends Component {
   handleDelete() {
     const recipeID = this.props.params.id;
     this.props.deleteRecipe(recipeID);
-    this.props.redirectToRecipes();
+    this.props.router.push(`/users/${this.props.currentUsername}`);
   }
   render() {
     const recipe = this.state.currentRecipe;
@@ -97,4 +98,4 @@ class Recipe extends Component {
 
 Recipe.propTypes = propTypes;
 
-export default Recipe;
+export default withRouter(Recipe);
