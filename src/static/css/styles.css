@@ -29,10 +29,6 @@ main {
   height: 100vh;
 }
 
-main {
-  padding-bottom: 2rem;
-}
-
 a {
   font-weight: bold;
 }
@@ -104,7 +100,8 @@ section {
 =======================*/
 
 .welcome {
-  background-color: #00796B;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/glass-467825_1920.jpg') fixed center center no-repeat;
+  background-size: cover;
   height: 100%;
   padding: 1rem;
 }
