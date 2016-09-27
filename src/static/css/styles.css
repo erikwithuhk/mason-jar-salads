@@ -245,12 +245,6 @@ section {
   transition: all 0.2s ease-in-out;
 }
 
-.top-nav__sub-nav a:hover,
-.top-nav__sub-nav a.selected {
-  background-color: #fff;
-  color: #00796B;
-}
-
 
 
 /* =======================
@@ -294,21 +288,12 @@ section {
   transition: background-color 0.2s ease-in-out;
 }
 
-.recipes__recipe-card:hover .recipes__recipe-card__name-and-user {
-  background-color: #757575;
-}
-
 .recipes__recipe-card__name-and-user .recipe-title,
 .recipes__recipe-card__name-and-user .username {
   color: #000;
   font-size: 0.875rem;
   text-align: left;
   transition: color 0.2s ease-in-out;
-}
-
-.recipes__recipe-card:hover .recipe-title,
-.recipes__recipe-card:hover .username {
-  color: #fff;
 }
 
 .recipes__recipe-card__name-and-user .recipe-title {
@@ -335,13 +320,6 @@ section {
   padding: 0.5rem;
 }
 
-.new-recipe-button:hover {
-  background-color: #FFC107;
-  border-color: #FFC107;
-  color: #fff;
-  transition: all 0.2s ease-in-out;
-}
-
 
 
 /* =======================
@@ -351,10 +329,6 @@ section {
 .recipe-view__author a {
   color: #00796B;
   transition: color 0.2s ease-in-out;
-}
-
-.recipe-view__author a:hover {
-  color: #FFC107;
 }
 
 .ingredients-header {
@@ -447,5 +421,33 @@ section {
 @media (min-width: 700px) {
   .recipes__recipe-card {
     width: 21%
+  }
+}
+
+@media (min-width: 769px) {
+  .top-nav__sub-nav a:hover,
+  .top-nav__sub-nav a.selected {
+    background-color: #fff;
+    color: #00796B;
+  }
+
+  .recipes__recipe-card:hover .recipes__recipe-card__name-and-user {
+    background-color: #757575;
+  }
+
+  .recipes__recipe-card:hover .recipe-title,
+  .recipes__recipe-card:hover .username {
+    color: #fff;
+  }
+
+  .new-recipe-button:hover {
+    background-color: #FFC107;
+    border-color: #FFC107;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .recipe-view__author a:hover {
+    color: #FFC107;
   }
 }
