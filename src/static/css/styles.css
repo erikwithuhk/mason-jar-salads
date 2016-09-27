@@ -29,6 +29,10 @@ main {
   height: 100vh;
 }
 
+main {
+  padding-bottom: 2rem;
+}
+
 a {
   font-weight: bold;
 }
@@ -397,6 +401,7 @@ section {
   padding: 0.5rem;
   width: 100%;
   max-width: 20rem;
+  -webkit-appearance: none;
 }
 
 .new-recipe-form__submit,

@@ -131,7 +131,7 @@ class App extends Component {
     return (
       <div className="container">
         {this.showHeader()}
-        <main>
+        <main className="clearfix">
           {childrenWithProps}
         </main>
       </div>
