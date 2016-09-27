@@ -264,6 +264,10 @@ section {
   width: 45%;
 }
 
+.recipes__recipe-card:nth-child(2n+1) {
+  clear: left;
+}
+
 .recipes__recipe-card a {
   text-decoration: none;
 }
@@ -408,15 +412,35 @@ section {
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 450px) {
   .recipes__recipe-card {
-    width: 29.33%
+    width: 29.33%;
+  }
+
+  .recipes__recipe-card:nth-child(2n+1) {
+    clear: none;
+  }
+
+  .recipes__recipe-card:nth-child(3n+1) {
+    clear: left;
   }
 }
 
 @media (min-width: 700px) {
   .recipes__recipe-card {
-    width: 21%
+    width: 21%;
+  }
+
+  .recipes__recipe-card:nth-child(2n+1) {
+    clear: none;
+  }
+
+  .recipes__recipe-card:nth-child(3n+1) {
+    clear: none;
+  }
+
+  .recipes__recipe-card:nth-child(4n+1) {
+    clear: left;
   }
 }
 

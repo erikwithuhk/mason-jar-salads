@@ -52,8 +52,10 @@ class RecipeList extends Component {
   render() {
     return (
       <section className="recipes">
-        <h2>{this.generateRecipeListHeader()}</h2>
-        {this.renderRecipeCards()}
+      <h2>{this.generateRecipeListHeader()}</h2>
+        <div className="recipe-cards">
+          {this.renderRecipeCards()}
+        </div>
         {this.showNewRecipeButton()}
       </section>
     );
