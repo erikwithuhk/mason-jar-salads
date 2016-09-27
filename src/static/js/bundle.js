@@ -14927,7 +14927,7 @@ var recipeCard = function recipeCard(_ref) {
     _react2.default.createElement(
       _reactRouter.Link,
       { to: '/recipes/' + id },
-      _react2.default.createElement('div', { className: 'recipes__recipe-card__image', style: { backgroundImage: 'url(\'https://media1.popsugar-assets.com/files/thumbor/JGKtKFMeJL66e9S2fjQpLNR5X1w/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2014/12/12/730/n/1922729/c5008f3d8961ebbb_10843733_894977147188435_1798758311_n/i/5-Ingredient-Salad.jpg\')' } }),
+      _react2.default.createElement('div', { className: 'recipes__recipe-card__image' }),
       _react2.default.createElement(
         'div',
         { className: 'recipes__recipe-card__name-and-user' },
@@ -15357,7 +15357,11 @@ var RecipeList = function (_Component) {
           null,
           this.generateRecipeListHeader()
         ),
-        this.renderRecipeCards(),
+        _react2.default.createElement(
+          'div',
+          { className: 'recipe-cards' },
+          this.renderRecipeCards()
+        ),
         this.showNewRecipeButton()
       );
     }
