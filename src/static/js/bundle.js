@@ -14556,7 +14556,7 @@ var App = function (_Component) {
         this.showHeader(),
         _react2.default.createElement(
           'main',
-          null,
+          { className: 'clearfix' },
           childrenWithProps
         )
       );
