@@ -108,7 +108,7 @@ section {
 
 .welcome__page-header {
   color: #fff;
-  font: bold 3rem Lobster, cursive;
+  font: bold 2rem Lobster, cursive;
   margin: 1.5rem auto 3.5rem;
   text-align: center;
 }
@@ -393,14 +393,6 @@ section {
 8. Media queries
 =======================*/
 
-@media (min-width: 710px) {
-  section {
-    margin-left: auto;
-    margin-right: auto;
-    width: 700px;
-  }
-}
-
 @media (min-width: 321px) {
   .new-recipe-form__submit {
     margin-right: 2%;
@@ -413,6 +405,10 @@ section {
 }
 
 @media (min-width: 450px) {
+  .welcome__page-header {
+    font-size: 3rem;
+  }
+
   .recipes__recipe-card {
     width: 29.33%;
   }
@@ -444,7 +440,16 @@ section {
   }
 }
 
+@media (min-width: 710px) {
+  section {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+  }
+}
+
 @media (min-width: 769px) {
+
   .top-nav__sub-nav a:hover,
   .top-nav__sub-nav a.selected {
     background-color: #fff;
