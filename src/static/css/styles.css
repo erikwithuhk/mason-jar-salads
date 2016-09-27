@@ -67,6 +67,7 @@ section {
   font: bold 1rem Raleway, sans-serif;
   padding: 0.5rem;
   text-decoration: none;
+  -webkit-appearance: none;
 }
 
 .btn > a {
@@ -166,19 +167,18 @@ section {
 }
 
 .authentication-form__first-input {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px 5px 0 0;
   border-bottom: 1px solid #BDBDBD;
 }
 
 .authentication-form__middle-input {
   border-bottom: 1px solid #BDBDBD;
+  border-radius: 0;
 }
 
 .authentication-form__last-input {
   border-bottom: none;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 0 0 5px 5px;
 }
 
 .authentication-form__submit {
