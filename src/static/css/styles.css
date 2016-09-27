@@ -7,7 +7,7 @@ Contents:
   5. Recipe list
   6. Recipe view
   7. Recipe form
-  Media queries
+  8. Media queries
 =======================*/
 
 
@@ -269,9 +269,8 @@ section {
 }
 
 .recipes__recipe-card__image {
+  background: linear-gradient( rgba(255, 193, 7, 0.5), rgba(255, 193, 7, 0.5) ), url('../images/mason-jar-drawing.png') center center no-repeat;
   background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
   border-radius: 3px 3px 0 0;
   height: 10rem;
   width: 100%;
@@ -387,7 +386,7 @@ section {
 
 
 /* =======================
-# Media queries
+8. Media queries
 =======================*/
 
 @media (min-width: 710px) {
